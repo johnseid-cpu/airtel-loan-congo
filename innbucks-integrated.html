@@ -1435,6 +1435,77 @@
   }
 
   calcUp();
-</script>
+    // // ══════════════════════════════════════════════════════
+// LIVE APPROVAL POPUP LOGIC (AIRTEL CONGO - USD)
+// ══════════════════════════════════════════════════════
+document.addEventListener("DOMContentLoaded", () => {
+
+    const liveApprovals = [
+        { number: "+243 05* *** 416", location: "Kinshasa", amount: "$150" },
+        { number: "+243 05* *** 564", location: "Lubumbashi", amount: "$300" },
+        { number: "+243 05* *** 678", location: "Mbuji-Mayi", amount: "$500" },
+        { number: "+243 05* *** 780", location: "Kananga", amount: "$800" },
+        { number: "+243 05* *** 567", location: "Kisangani", amount: "$1,200" },
+        { number: "+243 05* *** 608", location: "Goma", amount: "$1,500" },
+        { number: "+243 05* *** 450", location: "Bukavu", amount: "$2,000" },
+        { number: "+243 05* *** 067", location: "Matadi", amount: "$2,500" },
+        { number: "+243 05* *** 406", location: "Kolwezi", amount: "$3,000" },
+        { number: "+243 05* *** 577", location: "Likasi", amount: "$3,500" },
+        { number: "+243 05* *** 436", location: "Tshikapa", amount: "$4,000" },
+        { number: "+243 05* *** 507", location: "Bunia", amount: "$5,000" },
+        { number: "+243 05* *** 436", location: "Uvira", amount: "$6,000" },
+        { number: "+243 05* *** 597", location: "Boma", amount: "$7,500" },
+        { number: "+243 05* *** 446", location: "Kindu", amount: "$8,000" },
+        { number: "+243 05* *** 537", location: "Mwene-Ditu", amount: "$10,000" },
+        { number: "+243 05* *** 458", location: "Isiro", amount: "$12,500" },
+        { number: "+243 05* *** 569", location: "Kalemie", amount: "$15,000" },
+        { number: "+243 05* *** 450", location: "Kikwit", amount: "$20,000" },
+        { number: "+243 05* *** 455", location: "Kinshasa", amount: "$25,000" }
+    ];
+
+    const popup = document.getElementById("popup");
+    const popupText = document.getElementById("popup-text");
+    const popupAvatar = document.getElementById("popup-avatar");
+
+    if (!popup || !popupText || !popupAvatar) {
+        console.error("Popup elements not found. Check your HTML IDs.");
+        return;
+    }
+
+    let lastIndex = -1;
+
+    function displayPopup() {
+        let index;
+
+        do {
+            index = Math.floor(Math.random() * liveApprovals.length);
+        } while (index === lastIndex && liveApprovals.length > 1);
+
+        lastIndex = index;
+
+        const user = liveApprovals[index];
+
+        // Avatar displays country code badge
+        popupAvatar.textContent = "+243";
+
+        popupText.innerHTML = `
+            <strong>${user.number}</strong><br>
+            From <strong>${user.location}</strong><br>
+            Has been approved for a loan of
+            <strong>${user.amount}</strong>
+        `;
+
+        popup.classList.add("show");
+
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 2500);
+    }
+
+    // Trigger popup loop
+    setTimeout(displayPopup, 2000);
+    setInterval(displayPopup, 5500);
+
+});</script>
 </body>
 </html>
