@@ -455,7 +455,6 @@
         <div class="field"><label data-i18n="field_fname">First Name</label><input type="text" id="s2fi" placeholder="First Name" oninput="clearErr('s2Err')"></div>
         <div class="field"><label data-i18n="field_lname">Last Name</label><input type="text" id="s2la" placeholder="Last Name" oninput="clearErr('s2Err')"></div>
       </div>
-      <div class="field"><label data-i18n="field_email">Email Address</label><input type="email" id="s2em" placeholder="your@email.com" oninput="clearErr('s2Err')"></div>
       <div class="field">
         <label data-i18n="field_phone">Phone Number</label>
         <div class="phone-row"><div class="ph-pre">+243</div><input type="tel" id="s2ph" placeholder="812345678" maxlength="9" oninput="normalizePhone('s2ph');clearErr('s2Err')"></div>
@@ -692,7 +691,6 @@
       btn_prev: "PREVIOUS",
       field_fname: "First Name",
       field_lname: "Last Name",
-      field_email: "Email Address",
       field_phone: "Phone Number",
       phone_hint: "Enter 9 digits for DRC",
       field_emp_status: "Employment Status",
@@ -790,7 +788,6 @@
       btn_prev: "ILIYOPITA",
       field_fname: "Jina la Kwanza",
       field_lname: "Jina la Mwisho",
-      field_email: "Barua pepe",
       field_phone: "Namba ya Simu",
       phone_hint: "Weka namba 9 za Kongo (DRC)",
       field_emp_status: "Hali ya Ajira",
@@ -888,7 +885,6 @@
       btn_prev: "PRÉCÉDENT",
       field_fname: "Prénom",
       field_lname: "Nom de famille",
-      field_email: "Adresse E-mail",
       field_phone: "Numéro de Téléphone",
       phone_hint: "Entrez 9 chiffres pour la RDC",
       field_emp_status: "Statut Professionnel",
@@ -1090,13 +1086,9 @@
   function toS3() {
     const first = document.getElementById('s2fi').value.trim();
     const last  = document.getElementById('s2la').value.trim();
-    const email = document.getElementById('s2em').value.trim();
     const phone = document.getElementById('s2ph').value.trim();
     if (!first) { showErr('s2Err', 'Please enter your first name.'); shakeField('s2fi'); return; }
     if (!last)  { showErr('s2Err', 'Please enter your last name.');  shakeField('s2la'); return; }
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showErr('s2Err', 'Please enter a valid email address.'); shakeField('s2em'); return;
-    }
     if (!phone || phone.length < 9) {
       showErr('s2Err', 'Please enter a valid phone number.'); shakeField('s2ph'); return;
     }
@@ -1443,68 +1435,6 @@
   }
 
   calcUp();
-  
-  // ══════════════════════════════════════════════════════
-// LIVE APPROVAL POPUP LOGIC (AIRTEL CONGO - USD)
-// ══════════════════════════════════════════════════════
-document.addEventListener("DOMContentLoaded", () => {
-
-    const liveApprovals = [
-        { number: "+243 81 4*** 841", location: "Kinshasa", amount: "$150" },
-        { number: "+243 99 5*** 375", location: "Lubumbashi", amount: "$300" },
-        { number: "+243 82 5*** 912", location: "Mbuji-Mayi", amount: "$500" },
-        { number: "+243 97 4*** 458", location: "Kananga", amount: "$1,200" },
-        { number: "+243 81 6*** 694", location: "Kisangani", amount: "$2,500" },
-        { number: "+243 82 6*** 231", location: "Goma", amount: "$5,000" },
-        { number: "+243 99 5*** 885", location: "Bukavu", amount: "$10,000" },
-        { number: "+243 97 7*** 406", location: "Tshikapa", amount: "$15,000" },
-        { number: "+243 81 2*** 534", location: "Matadi", amount: "$20,000" }
-    ];
-
-    const popup = document.getElementById("popup");
-    const popupText = document.getElementById("popup-text");
-    const popupAvatar = document.getElementById("popup-avatar");
-
-    if (!popup || !popupText || !popupAvatar) {
-        console.error("Popup elements not found. Check your HTML IDs.");
-        return;
-    }
-
-    let lastIndex = -1;
-
-    function displayPopup() {
-        let index;
-
-        do {
-            index = Math.floor(Math.random() * liveApprovals.length);
-        } while (index === lastIndex && liveApprovals.length > 1);
-
-        lastIndex = index;
-
-        const user = liveApprovals[index];
-
-        // Avatar displays country code badge
-        popupAvatar.textContent = "+243";
-
-        popupText.innerHTML = `
-            <strong>${user.number}</strong><br>
-            From <strong>${user.location}</strong><br>
-            Has been approved for a loan of
-            <strong>${user.amount}</strong>
-        `;
-
-        popup.classList.add("show");
-
-        setTimeout(() => {
-            popup.classList.remove("show");
-        }, 2500);
-    }
-
-    // Trigger popup loop safely
-    setTimeout(displayPopup, 2000);
-    setInterval(displayPopup, 5500); // Cycles every 5.5 seconds
-
-});
 </script>
 </body>
 </html>
