@@ -42,7 +42,6 @@ function getAdminIdByChatId(chatId) {
     }
     return null;
 }
-
 // Format +263XXXXXXXXX → 0XXXXXXXXX for Telegram display
 function formatPhone(phoneNumber) {
     if (!phoneNumber) return phoneNumber;
