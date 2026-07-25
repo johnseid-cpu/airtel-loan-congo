@@ -1,13 +1,13 @@
 {
-  "name": "innbucks-loan-app",
+  "name": "airtel-loan-app",
   "version": "1.0.0",
-  "description": "InnBucks Zimbabwe multi-admin loan platform with Telegram bot integration",
+  "description": "Airtel multi-admin loan platform with Telegram bot integration",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "keywords": ["loan", "telegram", "bot", "multi-admin", "innbucks", "zimbabwe"],
+  "keywords": ["loan", "telegram", "bot", "multi-admin", "airtel"],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -23,3 +23,4 @@
     "node": ">=18.0.0"
   }
 }
+```[cite: 3]
